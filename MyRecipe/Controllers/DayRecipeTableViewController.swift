@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class DayRecipeTableViewController: UITableViewController {
     let networkRequests = NetworkRequests()
@@ -28,8 +29,12 @@ class DayRecipeTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "dayRecipeCell", for: indexPath) as! DayRecipeTableViewCell
         let object = myRecipe[indexPath.row]
+        let urlForImage = URL(string: object.image)
+        
         cell.recipeTitle.text = object.title
         cell.recipeRating.text = "\(object.aggregateLikes)"
+        cell.recipeTitle.numberOfLines = 0
+        cell.recipeImage.kf.setImage(with: urlForImage)
         return cell
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -38,5 +43,19 @@ class DayRecipeTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         90
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "detailSegue" {
+            let currentVC = segue.source as? DayRecipeTableViewController
+            guard let indexPath = self.tableView.indexPathForSelectedRow else {return}
+            let object = currentVC?.myRecipe[indexPath.row]
+            if let detailVC = segue.destination as? DayRecipeDetailViewController {
+                detailVC.DetailNameVCtitle = object?.title
+                detailVC.recipeImageString = object?.image ?? ""
+                detailVC.recipeDescriptionString = object?.instructions ?? "Here should be recipe"
 
+            
+        }
+    }
+
+}
 }

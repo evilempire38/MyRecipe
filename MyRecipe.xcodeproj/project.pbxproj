@@ -17,6 +17,8 @@
 		9A95F0C027A2B0830059BD29 /* RecipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A95F0BF27A2B0830059BD29 /* RecipeModel.swift */; };
 		9A95F0C227A2B8D40059BD29 /* NetworkRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A95F0C127A2B8D40059BD29 /* NetworkRequests.swift */; };
 		9A95F0C427A2C88A0059BD29 /* DayRecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A95F0C327A2C88A0059BD29 /* DayRecipeTableViewCell.swift */; };
+		9A95F0C727A2D03A0059BD29 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 9A95F0C627A2D03A0059BD29 /* Kingfisher */; };
+		9A95F0CB27A2D43B0059BD29 /* DayRecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A95F0CA27A2D43B0059BD29 /* DayRecipeDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,7 @@
 		9A95F0BF27A2B0830059BD29 /* RecipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeModel.swift; sourceTree = "<group>"; };
 		9A95F0C127A2B8D40059BD29 /* NetworkRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequests.swift; sourceTree = "<group>"; };
 		9A95F0C327A2C88A0059BD29 /* DayRecipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayRecipeTableViewCell.swift; sourceTree = "<group>"; };
+		9A95F0CA27A2D43B0059BD29 /* DayRecipeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayRecipeDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A95F0C727A2D03A0059BD29 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				9A95F0BD27A2AF9A0059BD29 /* DayRecipeTableViewController.swift */,
+				9A95F0CA27A2D43B0059BD29 /* DayRecipeDetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -119,6 +124,9 @@
 			dependencies = (
 			);
 			name = MyRecipe;
+			packageProductDependencies = (
+				9A95F0C627A2D03A0059BD29 /* Kingfisher */,
+			);
 			productName = MyRecipe;
 			productReference = 9A95F09A27A2A6450059BD29 /* MyRecipe.app */;
 			productType = "com.apple.product-type.application";
@@ -147,6 +155,9 @@
 				Base,
 			);
 			mainGroup = 9A95F09127A2A6450059BD29;
+			packageReferences = (
+				9A95F0C527A2D03A0059BD29 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 9A95F09B27A2A6450059BD29 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -180,6 +191,7 @@
 				9A95F0C027A2B0830059BD29 /* RecipeModel.swift in Sources */,
 				9A95F0C427A2C88A0059BD29 /* DayRecipeTableViewCell.swift in Sources */,
 				9A95F0BE27A2AF9A0059BD29 /* DayRecipeTableViewController.swift in Sources */,
+				9A95F0CB27A2D43B0059BD29 /* DayRecipeDetailViewController.swift in Sources */,
 				9A95F0A827A2A6450059BD29 /* MyRecipe.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -402,6 +414,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9A95F0C527A2D03A0059BD29 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9A95F0C627A2D03A0059BD29 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9A95F0C527A2D03A0059BD29 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		9A95F0A627A2A6450059BD29 /* MyRecipe.xcdatamodeld */ = {

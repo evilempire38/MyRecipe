@@ -18,8 +18,6 @@ struct Recipe: Codable {
     let gaps: Gaps
     let lowFodmap: Bool
     let aggregateLikes, spoonacularScore, healthScore: Int
-    let creditsText: CreditsText
-    let license: License?
     let sourceName: SourceName
     let pricePerServing: Double
     let extendedIngredients: [ExtendedIngredient]
@@ -38,7 +36,7 @@ struct Recipe: Codable {
     let preparationMinutes, cookingMinutes: Int?
 
     enum CodingKeys: String, CodingKey {
-        case vegetarian, vegan, glutenFree, dairyFree, veryHealthy, cheap, veryPopular, sustainable, weightWatcherSmartPoints, gaps, lowFodmap, aggregateLikes, spoonacularScore, healthScore, creditsText, license, sourceName, pricePerServing, extendedIngredients, id, title, readyInMinutes, servings
+        case vegetarian, vegan, glutenFree, dairyFree, veryHealthy, cheap, veryPopular, sustainable, weightWatcherSmartPoints, gaps, lowFodmap, aggregateLikes, spoonacularScore, healthScore, sourceName, pricePerServing, extendedIngredients, id, title, readyInMinutes, servings
         case sourceURL = "sourceUrl"
         case image, imageType, summary, cuisines, dishTypes, diets, occasions, instructions, analyzedInstructions
         case originalID = "originalId"
@@ -80,11 +78,6 @@ enum Unit: String, Codable {
     case minutes = "minutes"
 }
 
-enum CreditsText: String, Codable {
-    case foodistaCOMTheCookingEncyclopediaEveryoneCanEdit = "Foodista.com – The Cooking Encyclopedia Everyone Can Edit"
-    case jenWest = "Jen West"
-    case lisaSVegetarianKitchen = "Lisa's Vegetarian Kitchen"
-}
 
 // MARK: - ExtendedIngredient
 struct ExtendedIngredient: Codable {
@@ -125,10 +118,6 @@ enum ImageType: String, Codable {
     case png = "png"
 }
 
-enum License: String, Codable {
-    case ccBy25CA = "CC BY 2.5 CA"
-    case ccBy30 = "CC BY 3.0"
-}
 
 enum SourceName: String, Codable {
     case foodAndSpice = "Food and Spice"
