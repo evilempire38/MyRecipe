@@ -15,8 +15,9 @@ class DayRecipeTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Recipe of the day"
-        networkRequests.fetchRandomRecipe { [weak self] recipe in
+        networkRequests.fetchRecipe { [weak self] recipe in
             guard let self = self else {return}
+            
             self.myRecipe = recipe
             self.tableView.reloadData()
         }
@@ -38,7 +39,7 @@ class DayRecipeTableViewController: UITableViewController {
         return cell
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        myRecipe.count
+        3
     }
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         90

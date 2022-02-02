@@ -8,6 +8,9 @@
 import UIKit
 
 class CategotiesViewController: UIViewController {
+
+    
+    
     @IBOutlet weak var categoriesBackgroundImage: UIImageView!
     @IBOutlet weak var kitchenOne: UIButton!
     @IBOutlet weak var kitcheTwo: UIButton!
@@ -16,6 +19,7 @@ class CategotiesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupInterface()
+
     
     }
     
@@ -31,10 +35,10 @@ class CategotiesViewController: UIViewController {
         
             
         switch button.tag {
-        case 0 :  button.setTitle("Meditherian", for: .normal)
-        case 1 :  button.setTitle("Europian", for: .normal)
-        case 2 :  button.setTitle("Caucasian", for: .normal)
-        case 3 :  button.setTitle("Russian", for: .normal)
+        case 0 :  button.setTitle("Mediterranean", for: .normal)
+        case 1 :  button.setTitle("Italian", for: .normal)
+        case 2 :  button.setTitle("Vegeterian", for: .normal)
+        case 3 :  button.setTitle("Asian", for: .normal)
             
         default:
              button.setTitle("", for: .normal)
@@ -44,18 +48,11 @@ class CategotiesViewController: UIViewController {
         
     }
     private func setupInterface() {
-        configButtons(kitchenOne)
-        configButtons(kitcheTwo)
-        configButtons(kitchenThree)
-        configButtons(KitchenFour)
+        self.categoriesBackgroundImage.image = #imageLiteral(resourceName: "berries")
+        self.configButtons(kitchenOne)
+        self.configButtons(kitcheTwo)
+        self.configButtons(kitchenThree)
+        self.configButtons(KitchenFour)
     }
 
-    @IBAction func toMedKitchen(_ sender: UIButton) {
-    }
-    @IBAction func toItalianKitchen(_ sender: Any) {
-    }
-    @IBAction func toVegetarianKitchen(_ sender: Any) {
-    }
-    @IBAction func toAsianKitchen(_ sender: Any) {
-    }
 }
