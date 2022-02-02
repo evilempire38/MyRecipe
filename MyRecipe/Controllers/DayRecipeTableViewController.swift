@@ -29,10 +29,10 @@ class DayRecipeTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "dayRecipeCell", for: indexPath) as! DayRecipeTableViewCell
         let object = myRecipe[indexPath.row]
-        let urlForImage = URL(string: object.image)
+        let urlForImage = URL(string: object.image ?? "")
         
         cell.recipeTitle.text = object.title
-        cell.recipeRating.text = "\(object.aggregateLikes)"
+        cell.recipeRating.text = "Health score : \(object.healthScore)"
         cell.recipeTitle.numberOfLines = 0
         cell.recipeImage.kf.setImage(with: urlForImage)
         return cell

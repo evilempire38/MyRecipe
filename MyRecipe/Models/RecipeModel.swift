@@ -1,7 +1,4 @@
-// This file was generated from JSON Schema using quicktype, do not modify it directly.
-// To parse the JSON, add this file to your project and do:
-//
-//   let recipeModel = try? newJSONDecoder().decode(RecipeModel.self, from: jsonData)
+
 
 import Foundation
 
@@ -18,15 +15,15 @@ struct Recipe: Codable {
     let gaps: Gaps
     let lowFodmap: Bool
     let aggregateLikes, spoonacularScore, healthScore: Int
-    let sourceName: SourceName
+    let sourceName: SourceName?
     let pricePerServing: Double
     let extendedIngredients: [ExtendedIngredient]
     let id: Int
     let title: String
     let readyInMinutes, servings: Int
     let sourceURL: String
-    let image: String
-    let imageType: ImageType
+    let image: String?
+    let imageType: ImageType?
     let summary: String
     let cuisines, dishTypes, diets, occasions: [String]
     let instructions: String
@@ -86,10 +83,10 @@ struct ExtendedIngredient: Codable {
     let consistency: Consistency?
     let name: String
     let nameClean: String?
-    let original, originalString, originalName: String
+    let original, originalName: String
     let amount: Double
     let unit: String
-    let meta, metaInformation: [String]
+    let meta: [String]
     let measures: Measures
 }
 

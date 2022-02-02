@@ -14,7 +14,7 @@ class DayRecipeTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-
+        recipeRating.numberOfLines = 0
         
     }
 

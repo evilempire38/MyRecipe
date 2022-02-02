@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A4E84A927AA8E93003C9D48 /* CategotiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4E84A827AA8E93003C9D48 /* CategotiesViewController.swift */; };
 		9A95F09E27A2A6450059BD29 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A95F09D27A2A6450059BD29 /* AppDelegate.swift */; };
 		9A95F0A027A2A6450059BD29 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A95F09F27A2A6450059BD29 /* SceneDelegate.swift */; };
 		9A95F0A527A2A6450059BD29 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A95F0A327A2A6450059BD29 /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9A4E84A827AA8E93003C9D48 /* CategotiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategotiesViewController.swift; sourceTree = "<group>"; };
 		9A95F09A27A2A6450059BD29 /* MyRecipe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyRecipe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A95F09D27A2A6450059BD29 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A95F09F27A2A6450059BD29 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 			children = (
 				9A95F0BD27A2AF9A0059BD29 /* DayRecipeTableViewController.swift */,
 				9A95F0CA27A2D43B0059BD29 /* DayRecipeDetailViewController.swift */,
+				9A4E84A827AA8E93003C9D48 /* CategotiesViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -190,6 +193,7 @@
 				9A95F0C227A2B8D40059BD29 /* NetworkRequests.swift in Sources */,
 				9A95F0C027A2B0830059BD29 /* RecipeModel.swift in Sources */,
 				9A95F0C427A2C88A0059BD29 /* DayRecipeTableViewCell.swift in Sources */,
+				9A4E84A927AA8E93003C9D48 /* CategotiesViewController.swift in Sources */,
 				9A95F0BE27A2AF9A0059BD29 /* DayRecipeTableViewController.swift in Sources */,
 				9A95F0CB27A2D43B0059BD29 /* DayRecipeDetailViewController.swift in Sources */,
 				9A95F0A827A2A6450059BD29 /* MyRecipe.xcdatamodeld in Sources */,
