@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fJb-fT-FH4">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -9,6 +9,105 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Item-->
+        <scene sceneID="1fr-K5-fOa">
+            <objects>
+                <viewController id="fJb-fT-FH4" customClass="CategotiesViewController" customModule="MyRecipe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Bcw-P9-Pa6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="berries" translatesAutoresizingMaskIntoConstraints="NO" id="fXz-Af-ltt">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="44" translatesAutoresizingMaskIntoConstraints="NO" id="VzE-ca-XaI">
+                                <rect key="frame" x="82" y="277" width="250" height="342"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aiu-dc-hMk">
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="250" id="dyo-V0-dot"/>
+                                            <constraint firstAttribute="height" constant="50" id="lMB-2J-lM5"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="toMedKitchen:" destination="fJb-fT-FH4" eventType="touchUpInside" id="NNe-Kb-3AH"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ls-bw-zhQ">
+                                        <rect key="frame" x="0.0" y="94" width="250" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="LxJ-Ma-KVR"/>
+                                            <constraint firstAttribute="width" constant="250" id="jwu-vu-BBc"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="toItalianKitchen:" destination="fJb-fT-FH4" eventType="touchUpInside" id="9bv-u1-qX3"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cSD-gv-bPZ">
+                                        <rect key="frame" x="0.0" y="198" width="250" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="lYK-9P-14K"/>
+                                            <constraint firstAttribute="width" constant="250" id="x5b-FQ-u5u"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                        <connections>
+                                            <action selector="toVegetarianKitchen:" destination="fJb-fT-FH4" eventType="touchUpInside" id="fZT-2i-15I"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G2R-oC-TYb">
+                                        <rect key="frame" x="0.0" y="292" width="250" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="3wL-Ra-dqM"/>
+                                            <constraint firstAttribute="width" constant="250" id="u0W-Qd-Gh1"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                        <connections>
+                                            <action selector="toAsianKitchen:" destination="fJb-fT-FH4" eventType="touchUpInside" id="4hT-UZ-mqp"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="S76-zF-gR6"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="fXz-Af-ltt" firstAttribute="top" secondItem="Bcw-P9-Pa6" secondAttribute="top" id="4Fw-Tb-ivS"/>
+                            <constraint firstAttribute="bottom" secondItem="fXz-Af-ltt" secondAttribute="bottom" id="PEJ-Qa-kNW"/>
+                            <constraint firstAttribute="trailing" secondItem="fXz-Af-ltt" secondAttribute="trailing" id="PnV-xq-1Gg"/>
+                            <constraint firstItem="fXz-Af-ltt" firstAttribute="leading" secondItem="Bcw-P9-Pa6" secondAttribute="leading" id="Ybr-Vw-p0R"/>
+                            <constraint firstItem="VzE-ca-XaI" firstAttribute="centerX" secondItem="Bcw-P9-Pa6" secondAttribute="centerX" id="fzI-Cy-9wV"/>
+                            <constraint firstItem="VzE-ca-XaI" firstAttribute="centerY" secondItem="Bcw-P9-Pa6" secondAttribute="centerY" id="mQN-rC-Evj"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="YHs-83-kOe"/>
+                    <connections>
+                        <outlet property="KitchenFour" destination="G2R-oC-TYb" id="PSo-AU-Xgs"/>
+                        <outlet property="categoriesBackgroundImage" destination="fXz-Af-ltt" id="Air-rV-V1G"/>
+                        <outlet property="kitcheTwo" destination="6Ls-bw-zhQ" id="2aC-6p-QhP"/>
+                        <outlet property="kitchenOne" destination="Aiu-dc-hMk" id="85B-B1-FqO"/>
+                        <outlet property="kitchenThree" destination="cSD-gv-bPZ" id="IMF-d4-0Mq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jDR-8a-WMV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2438" y="-1465"/>
+        </scene>
         <!--Item-->
         <scene sceneID="4Fm-bG-cag">
             <objects>
@@ -83,7 +182,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kQR-DY-ySW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3000" y="-697"/>
+            <point key="canvasLocation" x="3249" y="-670"/>
         </scene>
         <!--Day Recipe Detail View Controller-->
         <scene sceneID="Y9a-aE-0I5">
@@ -94,13 +193,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KTO-Vz-CcE">
-                                <rect key="frame" x="0.0" y="88" width="414" height="200"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="qeP-Mq-lsH"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3gJ-63-qeA">
-                                <rect key="frame" x="10" y="290" width="394" height="530"/>
+                                <rect key="frame" x="10" y="246" width="394" height="530"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="530" id="mZQ-7X-Z3g"/>
                                 </constraints>
@@ -136,23 +235,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="55v-LJ-Ric" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3991" y="-697"/>
-        </scene>
-        <!--Item-->
-        <scene sceneID="PFa-3T-J4S">
-            <objects>
-                <viewController id="srx-Pv-1sg" customClass="CategotiesViewController" customModule="MyRecipe" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="fcP-EZ-J21">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="8kr-u1-JbI"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="3ZJ-PS-K83"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bIl-M9-0oX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3001" y="-1383"/>
+            <point key="canvasLocation" x="4068" y="-670"/>
         </scene>
         <!--Item-->
         <scene sceneID="3gJ-Ev-KzN">
@@ -165,13 +248,10 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="DMM-YX-oSx" kind="relationship" relationship="rootViewController" id="Ds2-8w-ePl"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="peg-jI-SbE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="359" y="-48"/>
+            <point key="canvasLocation" x="700" y="-670"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="pZt-rx-EvP">
@@ -183,17 +263,14 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
-                    <connections>
-                        <segue destination="srx-Pv-1sg" kind="relationship" relationship="viewControllers" id="AiD-Iv-7IP"/>
-                        <segue destination="jFB-mV-6d6" kind="relationship" relationship="viewControllers" id="mkI-eV-UV3"/>
-                    </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dGf-yl-lFa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1715.9420289855075" y="-47.544642857142854"/>
+            <point key="canvasLocation" x="2100" y="-670"/>
         </scene>
     </scenes>
     <resources>
+        <image name="berries" width="640" height="960"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
