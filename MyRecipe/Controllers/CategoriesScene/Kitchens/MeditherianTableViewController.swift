@@ -17,8 +17,7 @@ class MeditherianTableViewController: UITableViewController {
         
         request.fetchRecipe { [weak self]  recipe in
             guard let self = self else {return}
-            self.recipies = self.sortByKitchen(array: recipe)
-
+            self.recipies = self.filterRecipes(with: recipe, by: "Mediterranean")
             self.tableView.reloadData()
             
             
@@ -43,19 +42,12 @@ class MeditherianTableViewController: UITableViewController {
         
         return cell
     }
-    
-    private func sortByKitchen (array : [Recipe]) -> [Recipe] {
-        var newArray = [Recipe]()
-        for element in array {
-            for kitchen in element.cuisines {
-                if kitchen == "Mediterranean" {
-                    newArray.append(element)
-                }
-            }
-        }
-        return newArray
+        
+    private func filterRecipes (with recipes : [Recipe], by myCuisine: String) -> [Recipe] {
+        return recipes.filter {
+            $0.cuisines.contains { cuisine in
+                cuisine.lowercased() == myCuisine.lowercased() } }
     }
-    
 }
 
 
