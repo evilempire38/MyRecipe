@@ -11,13 +11,18 @@ import Kingfisher
 class DayRecipeTableViewController: UITableViewController {
     let networkRequests = NetworkRequests()
     var myRecipe = [Recipe]()
-
+    var randomNumberOne : Int = Int.random(in: 0...99)
+    var randomNumberTwo : Int = Int.random(in: 0...99)
+    var randomNumberThree : Int = Int.random(in: 0...99)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Recipe of the day"
-        networkRequests.fetchRandomRecipe { [weak self] recipe in
+        networkRequests.fetchRecipe { [weak self] recipe in
             guard let self = self else {return}
-            self.myRecipe = recipe
+            
+            self.myRecipe = [recipe[self.randomNumberOne], recipe[self.randomNumberTwo],recipe[self.randomNumberThree]]
+            
             self.tableView.reloadData()
         }
 
@@ -29,10 +34,10 @@ class DayRecipeTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "dayRecipeCell", for: indexPath) as! DayRecipeTableViewCell
         let object = myRecipe[indexPath.row]
-        let urlForImage = URL(string: object.image)
+        let urlForImage = URL(string: object.image ?? "")
         
         cell.recipeTitle.text = object.title
-        cell.recipeRating.text = "\(object.aggregateLikes)"
+        cell.recipeRating.text = "Health score : \(object.healthScore)"
         cell.recipeTitle.numberOfLines = 0
         cell.recipeImage.kf.setImage(with: urlForImage)
         return cell
@@ -58,4 +63,5 @@ class DayRecipeTableViewController: UITableViewController {
     }
 
 }
+
 }

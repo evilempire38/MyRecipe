@@ -1,7 +1,4 @@
-// This file was generated from JSON Schema using quicktype, do not modify it directly.
-// To parse the JSON, add this file to your project and do:
-//
-//   let recipeModel = try? newJSONDecoder().decode(RecipeModel.self, from: jsonData)
+
 
 import Foundation
 
@@ -15,18 +12,15 @@ struct Recipe: Codable {
     let vegetarian, vegan, glutenFree, dairyFree: Bool
     let veryHealthy, cheap, veryPopular, sustainable: Bool
     let weightWatcherSmartPoints: Int
-    let gaps: Gaps
     let lowFodmap: Bool
     let aggregateLikes, spoonacularScore, healthScore: Int
-    let sourceName: SourceName
     let pricePerServing: Double
     let extendedIngredients: [ExtendedIngredient]
     let id: Int
     let title: String
     let readyInMinutes, servings: Int
     let sourceURL: String
-    let image: String
-    let imageType: ImageType
+    let image: String?
     let summary: String
     let cuisines, dishTypes, diets, occasions: [String]
     let instructions: String
@@ -36,9 +30,9 @@ struct Recipe: Codable {
     let preparationMinutes, cookingMinutes: Int?
 
     enum CodingKeys: String, CodingKey {
-        case vegetarian, vegan, glutenFree, dairyFree, veryHealthy, cheap, veryPopular, sustainable, weightWatcherSmartPoints, gaps, lowFodmap, aggregateLikes, spoonacularScore, healthScore, sourceName, pricePerServing, extendedIngredients, id, title, readyInMinutes, servings
+        case vegetarian, vegan, glutenFree, dairyFree, veryHealthy, cheap, veryPopular, sustainable, weightWatcherSmartPoints, lowFodmap, aggregateLikes, spoonacularScore, healthScore, pricePerServing, extendedIngredients, id, title, readyInMinutes, servings
         case sourceURL = "sourceUrl"
-        case image, imageType, summary, cuisines, dishTypes, diets, occasions, instructions, analyzedInstructions
+        case image, summary, cuisines, dishTypes, diets, occasions, instructions, analyzedInstructions
         case originalID = "originalId"
         case spoonacularSourceURL = "spoonacularSourceUrl"
         case preparationMinutes, cookingMinutes
@@ -86,10 +80,10 @@ struct ExtendedIngredient: Codable {
     let consistency: Consistency?
     let name: String
     let nameClean: String?
-    let original, originalString, originalName: String
+    let original, originalName: String
     let amount: Double
     let unit: String
-    let meta, metaInformation: [String]
+    let meta: [String]
     let measures: Measures
 }
 
@@ -109,21 +103,6 @@ struct Metric: Codable {
     let unitShort, unitLong: String
 }
 
-enum Gaps: String, Codable {
-    case no = "no"
-}
-
-enum ImageType: String, Codable {
-    case jpg = "jpg"
-    case png = "png"
-}
-
-
-enum SourceName: String, Codable {
-    case foodAndSpice = "Food and Spice"
-    case foodista = "Foodista"
-    case pinkWhen = "Pink When"
-}
 
 // MARK: - Encode/decode helpers
 
