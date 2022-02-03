@@ -16,8 +16,6 @@ class DayRecipeDetailViewController: UIViewController {
     @IBOutlet weak var recipeTextLabel: UILabel!
     
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = DetailNameVCtitle
@@ -36,10 +34,9 @@ extension String {
         guard let htmlStringData = self.data(using: String.Encoding.utf8) else {
             return nil
         }
-    
         let options: [NSAttributedString.DocumentReadingOptionKey : Any] = [
             .documentType: NSAttributedString.DocumentType.html,
-            .characterEncoding: String.Encoding.utf8.rawValue
+            .characterEncoding: String.Encoding.utf8.rawValue 
         ]
     
         let attributedString = try? NSAttributedString(data: htmlStringData, options: options, documentAttributes: nil)
