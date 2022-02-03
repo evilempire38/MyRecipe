@@ -11,14 +11,18 @@ import Kingfisher
 class DayRecipeTableViewController: UITableViewController {
     let networkRequests = NetworkRequests()
     var myRecipe = [Recipe]()
-
+    var randomNumberOne : Int = Int.random(in: 0...99)
+    var randomNumberTwo : Int = Int.random(in: 0...99)
+    var randomNumberThree : Int = Int.random(in: 0...99)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Recipe of the day"
         networkRequests.fetchRecipe { [weak self] recipe in
             guard let self = self else {return}
             
-            self.myRecipe = recipe
+            self.myRecipe = [recipe[self.randomNumberOne], recipe[self.randomNumberTwo],recipe[self.randomNumberThree]]
+            
             self.tableView.reloadData()
         }
 
@@ -39,7 +43,7 @@ class DayRecipeTableViewController: UITableViewController {
         return cell
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        3
+        myRecipe.count
     }
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         90
@@ -59,4 +63,5 @@ class DayRecipeTableViewController: UITableViewController {
     }
 
 }
+
 }
