@@ -72,10 +72,10 @@ class CategotiesViewController: UIViewController {
         switch segue.identifier {
         case "euro" :
             if let neededVC = segue.destination as? KitchenTableViewController {
-                neededVC.titleKitchenLabel = "europeran"
+                neededVC.titleKitchenLabel = "Europeran"
                 neededVC.filterKeyWord = "european"
             }
-        case "asian" :
+        case "chinese" :
             if let neededVC = segue.destination as? KitchenTableViewController {
                 neededVC.titleKitchenLabel = "Chinese"
                 neededVC.filterKeyWord = "Chinese"
