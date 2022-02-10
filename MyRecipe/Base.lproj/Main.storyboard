@@ -6,126 +6,13 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Categoties View Controller-->
-        <scene sceneID="1fr-K5-fOa">
-            <objects>
-                <viewController id="fJb-fT-FH4" customClass="CategotiesViewController" customModule="MyRecipe" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Bcw-P9-Pa6">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fXz-Af-ltt">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                            </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="44" translatesAutoresizingMaskIntoConstraints="NO" id="VzE-ca-XaI">
-                                <rect key="frame" x="82" y="230" width="250" height="436"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aiu-dc-hMk">
-                                        <rect key="frame" x="0.0" y="0.0" width="250" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="dyo-V0-dot"/>
-                                            <constraint firstAttribute="height" constant="50" id="lMB-2J-lM5"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="10"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <segue destination="yxD-VF-bqr" kind="show" identifier="euro" id="hek-2b-cUD"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ls-bw-zhQ">
-                                        <rect key="frame" x="0.0" y="94" width="250" height="60"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="LxJ-Ma-KVR"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="jwu-vu-BBc"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="20"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <segue destination="yxD-VF-bqr" kind="show" identifier="asian" id="IZe-XR-zlQ"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cSD-gv-bPZ">
-                                        <rect key="frame" x="0.0" y="198" width="250" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="lYK-9P-14K"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="x5b-FQ-u5u"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                        <connections>
-                                            <segue destination="yxD-VF-bqr" kind="show" identifier="american" id="wvC-12-dhT"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G2R-oC-TYb">
-                                        <rect key="frame" x="0.0" y="292" width="250" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="3wL-Ra-dqM"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="u0W-Qd-Gh1"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                        <connections>
-                                            <segue destination="yxD-VF-bqr" kind="show" identifier="mediterranean" id="meK-Rg-OJo"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sBF-jY-qlp">
-                                        <rect key="frame" x="0.0" y="386" width="250" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="0cC-Ls-QHz"/>
-                                            <constraint firstAttribute="width" constant="250" id="Z1e-Ax-DyN"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                        <connections>
-                                            <segue destination="yxD-VF-bqr" kind="show" identifier="vegeterian" id="uAn-QY-izO"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="S76-zF-gR6"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="fXz-Af-ltt" firstAttribute="top" secondItem="Bcw-P9-Pa6" secondAttribute="top" id="4Fw-Tb-ivS"/>
-                            <constraint firstAttribute="bottom" secondItem="fXz-Af-ltt" secondAttribute="bottom" id="PEJ-Qa-kNW"/>
-                            <constraint firstAttribute="trailing" secondItem="fXz-Af-ltt" secondAttribute="trailing" id="PnV-xq-1Gg"/>
-                            <constraint firstItem="fXz-Af-ltt" firstAttribute="leading" secondItem="Bcw-P9-Pa6" secondAttribute="leading" id="Ybr-Vw-p0R"/>
-                            <constraint firstItem="VzE-ca-XaI" firstAttribute="centerX" secondItem="Bcw-P9-Pa6" secondAttribute="centerX" id="fzI-Cy-9wV"/>
-                            <constraint firstItem="VzE-ca-XaI" firstAttribute="centerY" secondItem="Bcw-P9-Pa6" secondAttribute="centerY" id="mQN-rC-Evj"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="fDJ-Bn-ICY"/>
-                    <connections>
-                        <outlet property="KitchenFour" destination="G2R-oC-TYb" id="PSo-AU-Xgs"/>
-                        <outlet property="categoriesBackgroundImage" destination="fXz-Af-ltt" id="Air-rV-V1G"/>
-                        <outlet property="kitcheTwo" destination="6Ls-bw-zhQ" id="2aC-6p-QhP"/>
-                        <outlet property="kitchenFive" destination="sBF-jY-qlp" id="9HQ-DI-lae"/>
-                        <outlet property="kitchenOne" destination="Aiu-dc-hMk" id="85B-B1-FqO"/>
-                        <outlet property="kitchenThree" destination="cSD-gv-bPZ" id="IMF-d4-0Mq"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jDR-8a-WMV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3005.7971014492755" y="-3542.4107142857142"/>
-        </scene>
         <!--Item-->
         <scene sceneID="g0H-AN-dqb">
             <objects>
-                <tableViewController storyboardIdentifier="KitchenTableViewController" modalPresentationStyle="fullScreen" id="yxD-VF-bqr" customClass="KitchenTableViewController" customModule="MyRecipe" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="KitchenTableViewController" modalPresentationStyle="fullScreen" id="yxD-VF-bqr" customClass="CurrentCategoriesTableViewController" customModule="MyRecipe" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="afi-aq-sEH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -197,41 +84,52 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kyt-CH-l6P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4357" y="-3542"/>
+            <point key="canvasLocation" x="3891" y="-3542"/>
         </scene>
-        <!--Collection View Controller-->
-        <scene sceneID="TSI-tj-yAQ">
+        <!--Categories Table View Controller-->
+        <scene sceneID="A2g-PM-g4r">
             <objects>
-                <collectionViewController id="DNw-Yn-be8" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="LgP-2P-HLC">
+                <tableViewController id="EU5-iK-i6o" customClass="CategoriesTableViewController" customModule="MyRecipe" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="hrX-cC-nlr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="E7K-DM-zB6">
-                            <size key="itemSize" width="128" height="128"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="iLX-iP-dDV">
-                                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="VNm-Gh-aRe">
-                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="catCell" rowHeight="200" id="ghn-X1-4QR" customClass="CategoriesTableViewCell" customModule="MyRecipe" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="200"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ghn-X1-4QR" id="loc-ci-SS6">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                </collectionViewCellContentView>
-                            </collectionViewCell>
-                        </cells>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SBa-wo-beM">
+                                            <rect key="frame" x="20" y="11" width="374" height="178"/>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="SBa-wo-beM" firstAttribute="top" secondItem="loc-ci-SS6" secondAttribute="topMargin" id="C8a-3w-fiv"/>
+                                        <constraint firstItem="SBa-wo-beM" firstAttribute="leading" secondItem="loc-ci-SS6" secondAttribute="leadingMargin" id="LKk-0C-rHh"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="SBa-wo-beM" secondAttribute="trailing" id="MCv-4V-4fW"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="SBa-wo-beM" secondAttribute="bottom" id="xI0-vg-k3o"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="categoryImage" destination="SBa-wo-beM" id="GXb-Cp-LbH"/>
+                                    <segue destination="yxD-VF-bqr" kind="show" identifier="catSegue" id="Hhw-jM-W7x"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
                         <connections>
-                            <outlet property="dataSource" destination="DNw-Yn-be8" id="8dj-Hr-sxY"/>
-                            <outlet property="delegate" destination="DNw-Yn-be8" id="JoQ-ag-vdw"/>
+                            <outlet property="dataSource" destination="EU5-iK-i6o" id="Zsv-lB-IZu"/>
+                            <outlet property="delegate" destination="EU5-iK-i6o" id="U7H-5q-bos"/>
                         </connections>
-                    </collectionView>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lHs-pA-Ekn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="zEB-cH-q08"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gbE-h9-32V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6042" y="-3508"/>
+            <point key="canvasLocation" x="2936" y="-3542"/>
         </scene>
         <!--Day Recipe Table View Controller-->
         <scene sceneID="4Fm-bG-cag">
@@ -393,7 +291,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="fJb-fT-FH4" kind="relationship" relationship="rootViewController" id="znV-kB-jT5"/>
+                        <segue destination="EU5-iK-i6o" kind="relationship" relationship="rootViewController" id="dih-dT-3zd"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TDi-hZ-Vc9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -420,9 +318,6 @@
             <point key="canvasLocation" x="2095.6521739130435" y="-2026.3392857142856"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="wvC-12-dhT"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

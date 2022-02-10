@@ -8,21 +8,19 @@
 import UIKit
 import Kingfisher
 
-class KitchenTableViewController: UITableViewController {
+class CurrentCategoriesTableViewController: UITableViewController {
     var recipies = [Recipe]()
     let request = NetworkRequests()
-    let categVC = CategotiesViewController()
-    var titleKitchenLabel : String = ""
+    var titleCategoryType : String = ""
     var filterKeyWord : String = ""
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "\(titleKitchenLabel) kitchen"
+        self.title = "\(titleCategoryType)"
         
         request.fetchRecipe { [weak self]  recipe in
             guard let self = self else {return}
-            self.recipies = self.categVC.filterRecipes(with: recipe, by: self.filterKeyWord)
             self.tableView.reloadData()
         }
     }
