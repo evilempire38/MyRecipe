@@ -10,7 +10,7 @@ import UIKit
 class CategotiesViewController: UIViewController {
     
     
-    
+     
     @IBOutlet weak var categoriesBackgroundImage: UIImageView!
     @IBOutlet weak var kitchenOne: UIButton!
     @IBOutlet weak var kitcheTwo: UIButton!
