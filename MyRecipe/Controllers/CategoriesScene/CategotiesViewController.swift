@@ -8,9 +8,9 @@
 import UIKit
 
 class CategotiesViewController: UIViewController {
-
     
     
+     
     @IBOutlet weak var categoriesBackgroundImage: UIImageView!
     @IBOutlet weak var kitchenOne: UIButton!
     @IBOutlet weak var kitcheTwo: UIButton!
@@ -22,10 +22,10 @@ class CategotiesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupInterface()
-
-    
+        
+        
     }
-
+    
     
     private func configButtons (_ button : UIButton) -> UIButton {
         
@@ -37,7 +37,7 @@ class CategotiesViewController: UIViewController {
         button.titleLabel?.font = UIFont(name: "Baskerville", size: 18)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         
-            
+        
         switch button.tag {
         case 0 :  button.setTitle("European", for: .normal)
         case 1 :  button.setTitle("Asian", for: .normal)
@@ -46,13 +46,13 @@ class CategotiesViewController: UIViewController {
         case 4 : button.setTitle("Vegeterian", for: .normal)
             
         default:
-             button.setTitle("", for: .normal)
+            button.setTitle("", for: .normal)
         }
         
         return button
         
     }
-
+    
     private func setupInterface() {
         self.categoriesBackgroundImage.image = #imageLiteral(resourceName: "berries")
         self.configButtons(kitchenOne)
@@ -60,40 +60,35 @@ class CategotiesViewController: UIViewController {
         self.configButtons(kitchenThree)
         self.configButtons(KitchenFour)
         self.configButtons(kitchenFive)
-
+        
         
     }
     func filterRecipes (with recipes : [Recipe], by myCuisine: String) -> [Recipe] {
-       return recipes.filter {
-           $0.cuisines.contains { cuisine in
-               cuisine.lowercased() == myCuisine.lowercased() } }
-   }
+        return recipes.filter {
+            $0.cuisines.contains { cuisine in
+                cuisine.lowercased() == myCuisine.lowercased() } }
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        switch segue.identifier {
-        case "euro" :
-            if let neededVC = segue.destination as? KitchenTableViewController {
-                neededVC.titleKitchenLabel = "Europeran"
+        if let neededVC = segue.destination as? KitchenTableViewController {
+            switch segue.identifier {
+            case "euro" :
+                neededVC.titleKitchenLabel = "europeran"
                 neededVC.filterKeyWord = "european"
-            }
-        case "chinese" :
-            if let neededVC = segue.destination as? KitchenTableViewController {
+            case "asian" :
                 neededVC.titleKitchenLabel = "Chinese"
                 neededVC.filterKeyWord = "Chinese"
-            }
-        case "american" :
-            if let neededVC = segue.destination as? KitchenTableViewController {
+            case "american" :
                 neededVC.titleKitchenLabel = "American"
                 neededVC.filterKeyWord = "american"
-            }
-        case  "mediterranean" :
-            if let neededVC = segue.destination as? KitchenTableViewController {
+            case "mediterranean" :
                 neededVC.titleKitchenLabel = "Mediterranean"
                 neededVC.filterKeyWord = "mediterranean"
+            default : return
             }
-        default : return
             
         }
+        
     }
-
+    
 }
 
