@@ -60,16 +60,25 @@ class CategoriesTableViewController: UITableViewController {
             guard let indexPath = currentVC.tableView.indexPathForSelectedRow else {return}
             let currentCell = categories[indexPath.section]
             let currentCategory = currentCell.category
+            
             switch currentCategory {
                 
             case "Breakfast" : neededVC.paramForRequest = "breakfast"
+                neededVC.titleCategoryType = currentCategory
             case "Lunch" : neededVC.paramForRequest = "lunch"
+                neededVC.titleCategoryType = currentCategory
             case "Dinner" : neededVC.paramForRequest = "dinner"
+                neededVC.titleCategoryType = currentCategory
             case "Soups" : neededVC.paramForRequest = "soup"
+                neededVC.titleCategoryType = currentCategory
             case "Salads" : neededVC.paramForRequest = "salad"
+                neededVC.titleCategoryType = currentCategory
             case "Desserts" : neededVC.paramForRequest = "desserts"
+                neededVC.titleCategoryType = currentCategory
             case "Drinks" : neededVC.paramForRequest = "drinks"
+                neededVC.titleCategoryType = currentCategory
             case "Vegetarian" : neededVC.paramForRequest = "vegetarian"
+                neededVC.titleCategoryType = currentCategory
                 
             default:return
                 
