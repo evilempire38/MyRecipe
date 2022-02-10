@@ -17,7 +17,7 @@ class CategoriesTableViewController: UITableViewController {
         LocalModelForCategories(category: "Salads", imageCategory: "salad"),
         LocalModelForCategories(category: "Desserts", imageCategory: "desert"),
         LocalModelForCategories(category: "Drinks", imageCategory: "drinks"),
-        LocalModelForCategories(category: "Vegeterian", imageCategory: "vegeterian")]
+        LocalModelForCategories(category: "Vegetarian", imageCategory: "vegeterian")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,12 +58,22 @@ class CategoriesTableViewController: UITableViewController {
             guard let neededVC = segue.destination as? CurrentCategoriesTableViewController else {return}
             guard let currentVC = segue.source as? CategoriesTableViewController else {return}
             guard let indexPath = currentVC.tableView.indexPathForSelectedRow else {return}
-            let currentCell = categories[indexPath.row]
+            let currentCell = categories[indexPath.section]
             let currentCategory = currentCell.category
             switch currentCategory {
-            case "Breakfast" :
                 
-            }
+            case "Breakfast" : neededVC.paramForRequest = "breakfast"
+            case "Lunch" : neededVC.paramForRequest = "lunch"
+            case "Dinner" : neededVC.paramForRequest = "dinner"
+            case "Soups" : neededVC.paramForRequest = "soup"
+            case "Salads" : neededVC.paramForRequest = "salad"
+            case "Desserts" : neededVC.paramForRequest = "desserts"
+            case "Drinks" : neededVC.paramForRequest = "drinks"
+            case "Vegetarian" : neededVC.paramForRequest = "vegetarian"
+                
+            default:return
+                
+             }
         }
         
     }

@@ -12,17 +12,18 @@ class CurrentCategoriesTableViewController: UITableViewController {
     var recipies = [Recipe]()
     let request = NetworkRequests()
     var titleCategoryType : String = ""
-    var filterKeyWord : String = ""
+    var paramForRequest : String = ""
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "\(titleCategoryType)"
-        
-        request.fetchRecipe { [weak self]  recipe in
+        request.fetchCatRec(param: paramForRequest) { [weak self] product in
             guard let self = self else {return}
+            self.recipies = product
             self.tableView.reloadData()
         }
+
     }
     
     // MARK: - Table view data source
