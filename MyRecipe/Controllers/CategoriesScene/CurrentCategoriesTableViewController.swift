@@ -8,23 +8,26 @@
 import UIKit
 import Kingfisher
 
-class KitchenTableViewController: UITableViewController {
+class CurrentCategoriesTableViewController: UITableViewController {
     var recipies = [Recipe]()
     let request = NetworkRequests()
-    let categVC = CategotiesViewController()
-    var titleKitchenLabel : String = ""
-    var filterKeyWord : String = ""
+    var titleCategoryType : String = ""
+    var paramForRequest : String = ""
     
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        self.title = "\(titleKitchenLabel) kitchen"
+
         
-        request.fetchRecipe { [weak self]  recipe in
+        super.viewDidLoad()
+        self.tableView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        self.title = "\(titleCategoryType)"
+        request.fetchCatRec(param: paramForRequest) { [weak self] product in
+            
             guard let self = self else {return}
-            self.recipies = self.categVC.filterRecipes(with: recipe, by: self.filterKeyWord)
+            self.recipies = product
             self.tableView.reloadData()
         }
+
     }
     
     // MARK: - Table view data source
@@ -37,16 +40,24 @@ class KitchenTableViewController: UITableViewController {
         return recipies.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "kitchenCell", for: indexPath) as! KitcheTableViewCell
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "kitchenCell", for: indexPath) as! RecipeListTableViewCell
+        cell.layer.cornerRadius = 20
+        cell.layer.masksToBounds = true
         let object = recipies[indexPath.row]
         let urlforImage = URL(string: object.image ?? "")
         cell.reciepeImage.kf.setImage(with: urlforImage)
-        cell.recipeTitle.numberOfLines = 0
         cell.recipeTitle.text = object.title
+        cell.recipeTitle.numberOfLines = 0
+        cell.recipeTitle.lineBreakMode = .byWordWrapping
         cell.recipeHealthScore.text = "Health score : \(object.healthScore)"
         cell.recipeTimeToReady.text = "\(object.readyInMinutes) min to ready"
         return cell
     }
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150
+    }
+    
 }
 
 
