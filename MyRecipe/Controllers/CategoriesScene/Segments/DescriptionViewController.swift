@@ -8,13 +8,16 @@
 import UIKit
 
 class DescriptionViewController: UIViewController {
+    
+    var descriptionOfRecipe : String = ""
 
+    @IBOutlet weak var descriptionTextField: UITextView!
 
-    @IBOutlet weak var descriptionLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.descriptionLabel.text = "Здесь будет описаниеЗдесь будет описаниеЗдесь будет описаниеЗдесь будет описаниеЗдесь будет описаниеЗдесь будет описаниеЗдесь будет описаниеЗдесь будет описаниеЗдесь будет описаниеЗдесь будет описаниеЗдесь будет описаниеЗдесь будет описаниеЗдесь будет описаниеЗдесь будет описаниеЗдесь будет описаниеЗдесь будет описаниеЗдесь будет описаниеЗдесь будет описаниеЗдесь будет описаниеЗдесь будет описание"
+        self.descriptionTextField.text = descriptionOfRecipe
+        self.descriptionTextField.isEditable = false
         
     }
 

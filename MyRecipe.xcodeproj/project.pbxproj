@@ -85,9 +85,9 @@
 		9A4E84AF27AAB4A6003C9D48 /* CategoriesScene */ = {
 			isa = PBXGroup;
 			children = (
-				9A6FF3FC27BA4E7900C18D09 /* Segments */,
-				9A4E84B127AAB4F2003C9D48 /* CurrentCategoriesTableViewController.swift */,
 				9AE0DE1427B58B5200EB7C04 /* CategoriesTableViewController.swift */,
+				9A4E84B127AAB4F2003C9D48 /* CurrentCategoriesTableViewController.swift */,
+				9A6FF3FC27BA4E7900C18D09 /* Segments */,
 			);
 			path = CategoriesScene;
 			sourceTree = "<group>";

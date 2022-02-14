@@ -8,6 +8,7 @@
 import UIKit
 
 class StepsTableViewController: UITableViewController {
+    var recipe : Recipe?
         
     override func viewDidLoad() {
         super.viewDidLoad()

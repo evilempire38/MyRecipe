@@ -6,32 +6,61 @@
 //
 
 import UIKit
+import Kingfisher
 
 class DetailCurrentRecipeViewController: UIViewController {
+    
+    var recipe : Recipe?
     @IBOutlet weak var viewContainer: UIView!
     @IBOutlet weak var imageView: UIImageView!
-    let descriptionView : UIView = DescriptionViewController().view
-    let ingridientsView : UIView = IngridientsTableViewController().view
-    let stepsView : UIView = StepsTableViewController().view
+    let descriptionView = DescriptionViewController()
+    let ingridientsView  = IngridientsTableViewController()
+    let stepsView  = StepsTableViewController()
     var views : [UIView]!
-
+ 
     override func viewDidLoad() {
+        start()
         super.viewDidLoad()
+        self.title = recipe?.title
         setupViews()
-        imageView.image = #imageLiteral(resourceName: "lunch")
+
 
         
     }
     
+    private func setupDescriptionVC() {
+        descriptionView.descriptionOfRecipe = recipe?.summary.trimHTMLTags() ?? "empty"
+        if let url = recipe?.image {
+            let urlForImage = URL(string: url)
+            imageView.kf.setImage(with: urlForImage)
+        }
+
+    }
+    private func setupIngridientsVC(){
+        ingridientsView.recipe = recipe
+    }
+    private func setupStepsVC(){
+        stepsView.recipe = recipe
+    }
+    private func start(){
+        setupDescriptionVC()
+        setupIngridientsVC()
+        setupStepsVC()
+    }
+    
+    
+    
+    
+    
+    
     private func setupViews() {
-        
         views = [UIView]()
-        descriptionView.frame = CGRect(x: 0, y: 0, width: 374, height: 497)
-        ingridientsView.frame = CGRect(x: 0, y: 0, width: 374, height: 497)
-        stepsView.frame = CGRect(x: 0, y: 0, width: 374, height: 497)
-        views.append(descriptionView)
-        views.append(ingridientsView)
-        views.append(stepsView)
+        descriptionView.view.frame = CGRect(x: 0, y: 0, width: viewContainer.frame.width, height: viewContainer.frame.height)
+        ingridientsView.view.frame = CGRect(x: 0, y: 0, width: viewContainer.frame.width, height: viewContainer.frame.height)
+        stepsView.view.frame = CGRect(x: 0, y: 0, width: viewContainer.frame.width, height: viewContainer.frame.height)
+        views.append(descriptionView.view)
+        views.append(ingridientsView.view)
+        views.append(stepsView.view)
         for view in views {
             viewContainer.addSubview(view)
         }

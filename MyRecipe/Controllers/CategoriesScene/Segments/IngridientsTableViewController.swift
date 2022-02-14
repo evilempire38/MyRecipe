@@ -8,7 +8,8 @@
 import UIKit
 
 class IngridientsTableViewController: UITableViewController {
-
+    
+    var recipe : Recipe? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,23 +21,22 @@ class IngridientsTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
 
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return 0
+        return (recipe?.extendedIngredients.count)!
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        cell.textLabel?.text = recipe?.extendedIngredients[indexPath.row].name
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
