@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9A4E84B227AAB4F2003C9D48 /* CurrentCategoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4E84B127AAB4F2003C9D48 /* CurrentCategoriesTableViewController.swift */; };
+		9A6FF3FB27BA4CCB00C18D09 /* DetailCurrentRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6FF3FA27BA4CCB00C18D09 /* DetailCurrentRecipeViewController.swift */; };
 		9A95F09E27A2A6450059BD29 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A95F09D27A2A6450059BD29 /* AppDelegate.swift */; };
 		9A95F0A027A2A6450059BD29 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A95F09F27A2A6450059BD29 /* SceneDelegate.swift */; };
 		9A95F0A527A2A6450059BD29 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A95F0A327A2A6450059BD29 /* Main.storyboard */; };
@@ -24,10 +25,17 @@
 		9AE0DE1327B57A5800EB7C04 /* LocalModelForCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE0DE1227B57A5800EB7C04 /* LocalModelForCategories.swift */; };
 		9AE0DE1527B58B5200EB7C04 /* CategoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE0DE1427B58B5200EB7C04 /* CategoriesTableViewController.swift */; };
 		9AE0DE1727B58C0B00EB7C04 /* CategoriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE0DE1627B58C0B00EB7C04 /* CategoriesTableViewCell.swift */; };
+		9AEA6A6D27BA71A700AF0DE4 /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA6A6B27BA71A700AF0DE4 /* DescriptionViewController.swift */; };
+		9AEA6A6E27BA71A700AF0DE4 /* DescriptionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AEA6A6C27BA71A700AF0DE4 /* DescriptionViewController.xib */; };
+		9AEA6A7127BA71C600AF0DE4 /* IngridientsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA6A6F27BA71C600AF0DE4 /* IngridientsTableViewController.swift */; };
+		9AEA6A7227BA71C600AF0DE4 /* IngridientsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AEA6A7027BA71C600AF0DE4 /* IngridientsTableViewController.xib */; };
+		9AEA6A7527BA71D400AF0DE4 /* StepsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEA6A7327BA71D400AF0DE4 /* StepsTableViewController.swift */; };
+		9AEA6A7627BA71D400AF0DE4 /* StepsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AEA6A7427BA71D400AF0DE4 /* StepsTableViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		9A4E84B127AAB4F2003C9D48 /* CurrentCategoriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentCategoriesTableViewController.swift; sourceTree = "<group>"; };
+		9A6FF3FA27BA4CCB00C18D09 /* DetailCurrentRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCurrentRecipeViewController.swift; sourceTree = "<group>"; };
 		9A95F09A27A2A6450059BD29 /* MyRecipe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyRecipe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A95F09D27A2A6450059BD29 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A95F09F27A2A6450059BD29 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +53,12 @@
 		9AE0DE1227B57A5800EB7C04 /* LocalModelForCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalModelForCategories.swift; sourceTree = "<group>"; };
 		9AE0DE1427B58B5200EB7C04 /* CategoriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesTableViewController.swift; sourceTree = "<group>"; };
 		9AE0DE1627B58C0B00EB7C04 /* CategoriesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesTableViewCell.swift; sourceTree = "<group>"; };
+		9AEA6A6B27BA71A700AF0DE4 /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
+		9AEA6A6C27BA71A700AF0DE4 /* DescriptionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DescriptionViewController.xib; sourceTree = "<group>"; };
+		9AEA6A6F27BA71C600AF0DE4 /* IngridientsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngridientsTableViewController.swift; sourceTree = "<group>"; };
+		9AEA6A7027BA71C600AF0DE4 /* IngridientsTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IngridientsTableViewController.xib; sourceTree = "<group>"; };
+		9AEA6A7327BA71D400AF0DE4 /* StepsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsTableViewController.swift; sourceTree = "<group>"; };
+		9AEA6A7427BA71D400AF0DE4 /* StepsTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StepsTableViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,10 +85,25 @@
 		9A4E84AF27AAB4A6003C9D48 /* CategoriesScene */ = {
 			isa = PBXGroup;
 			children = (
+				9A6FF3FC27BA4E7900C18D09 /* Segments */,
 				9A4E84B127AAB4F2003C9D48 /* CurrentCategoriesTableViewController.swift */,
 				9AE0DE1427B58B5200EB7C04 /* CategoriesTableViewController.swift */,
 			);
 			path = CategoriesScene;
+			sourceTree = "<group>";
+		};
+		9A6FF3FC27BA4E7900C18D09 /* Segments */ = {
+			isa = PBXGroup;
+			children = (
+				9A6FF3FA27BA4CCB00C18D09 /* DetailCurrentRecipeViewController.swift */,
+				9AEA6A6B27BA71A700AF0DE4 /* DescriptionViewController.swift */,
+				9AEA6A6C27BA71A700AF0DE4 /* DescriptionViewController.xib */,
+				9AEA6A6F27BA71C600AF0DE4 /* IngridientsTableViewController.swift */,
+				9AEA6A7027BA71C600AF0DE4 /* IngridientsTableViewController.xib */,
+				9AEA6A7327BA71D400AF0DE4 /* StepsTableViewController.swift */,
+				9AEA6A7427BA71D400AF0DE4 /* StepsTableViewController.xib */,
+			);
+			path = Segments;
 			sourceTree = "<group>";
 		};
 		9A95F09127A2A6450059BD29 = {
@@ -204,7 +233,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A95F0AD27A2A6480059BD29 /* LaunchScreen.storyboard in Resources */,
+				9AEA6A7627BA71D400AF0DE4 /* StepsTableViewController.xib in Resources */,
+				9AEA6A6E27BA71A700AF0DE4 /* DescriptionViewController.xib in Resources */,
 				9A95F0AA27A2A6480059BD29 /* Assets.xcassets in Resources */,
+				9AEA6A7227BA71C600AF0DE4 /* IngridientsTableViewController.xib in Resources */,
 				9A95F0A527A2A6450059BD29 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -219,8 +251,11 @@
 				9AC0D8C127AAED6300900702 /* RecipeListTableViewCell.swift in Sources */,
 				9AE0DE1527B58B5200EB7C04 /* CategoriesTableViewController.swift in Sources */,
 				9AE0DE1327B57A5800EB7C04 /* LocalModelForCategories.swift in Sources */,
+				9AEA6A6D27BA71A700AF0DE4 /* DescriptionViewController.swift in Sources */,
 				9A4E84B227AAB4F2003C9D48 /* CurrentCategoriesTableViewController.swift in Sources */,
+				9AEA6A7527BA71D400AF0DE4 /* StepsTableViewController.swift in Sources */,
 				9A95F09E27A2A6450059BD29 /* AppDelegate.swift in Sources */,
+				9AEA6A7127BA71C600AF0DE4 /* IngridientsTableViewController.swift in Sources */,
 				9AE0DE1727B58C0B00EB7C04 /* CategoriesTableViewCell.swift in Sources */,
 				9A95F0A027A2A6450059BD29 /* SceneDelegate.swift in Sources */,
 				9A95F0C227A2B8D40059BD29 /* NetworkRequests.swift in Sources */,
@@ -229,6 +264,7 @@
 				9A95F0BE27A2AF9A0059BD29 /* DayRecipeTableViewController.swift in Sources */,
 				9A95F0CB27A2D43B0059BD29 /* DayRecipeDetailViewController.swift in Sources */,
 				9A95F0A827A2A6450059BD29 /* MyRecipe.xcdatamodeld in Sources */,
+				9A6FF3FB27BA4CCB00C18D09 /* DetailCurrentRecipeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

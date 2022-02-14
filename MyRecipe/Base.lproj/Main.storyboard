@@ -70,6 +70,7 @@
                                     <outlet property="recipeHealthScore" destination="EQ5-r4-Z5Z" id="TAa-kz-Ijh"/>
                                     <outlet property="recipeTimeToReady" destination="xbS-fd-Pej" id="qPU-Eo-0Ty"/>
                                     <outlet property="recipeTitle" destination="Sb7-s4-8xy" id="f6I-0I-8Ij"/>
+                                    <segue destination="kxI-g0-WNl" kind="show" identifier="toDetail" id="7qU-T8-cFH"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -85,43 +86,59 @@
             </objects>
             <point key="canvasLocation" x="3889.8550724637685" y="-3542.4107142857142"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail Current Recipe View Controller-->
         <scene sceneID="kmx-52-WgH">
             <objects>
-                <viewController id="kxI-g0-WNl" sceneMemberID="viewController">
+                <viewController id="kxI-g0-WNl" customClass="DetailCurrentRecipeViewController" customModule="MyRecipe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XvC-ST-hTk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4oU-uB-w4O">
-                                <rect key="frame" x="0.0" y="44" width="414" height="181"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="181"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="414" id="hkE-gs-Khx"/>
-                                    <constraint firstAttribute="height" constant="181" id="zO9-03-BFg"/>
+                                    <constraint firstAttribute="height" constant="181" id="u4g-hf-leJ"/>
                                 </constraints>
                             </imageView>
                             <segmentedControl opaque="NO" contentMode="scaleAspectFill" selected="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Uga-pe-LMg">
-                                <rect key="frame" x="71" y="233" width="272" height="32"/>
+                                <rect key="frame" x="71" y="277" width="272" height="32"/>
                                 <segments>
                                     <segment title="Description"/>
                                     <segment title="Ingridients"/>
                                     <segment title="Steps"/>
                                 </segments>
+                                <connections>
+                                    <action selector="switchViewAction:" destination="kxI-g0-WNl" eventType="valueChanged" id="Ane-fe-9CE"/>
+                                </connections>
                             </segmentedControl>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lap-UR-niJ">
+                                <rect key="frame" x="20" y="316" width="374" height="497"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="THM-G0-wj3"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="4oU-uB-w4O" firstAttribute="centerX" secondItem="XvC-ST-hTk" secondAttribute="centerX" id="Cii-5c-hrq"/>
-                            <constraint firstItem="4oU-uB-w4O" firstAttribute="top" secondItem="THM-G0-wj3" secondAttribute="top" id="ORS-nF-PpW"/>
-                            <constraint firstItem="Uga-pe-LMg" firstAttribute="top" secondItem="4oU-uB-w4O" secondAttribute="bottom" constant="8" id="fqS-G2-cuh"/>
-                            <constraint firstItem="Uga-pe-LMg" firstAttribute="centerX" secondItem="4oU-uB-w4O" secondAttribute="centerX" id="mbt-Ff-vT5"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="Lap-UR-niJ" secondAttribute="bottom" id="F5p-XQ-YgB"/>
+                            <constraint firstItem="Uga-pe-LMg" firstAttribute="top" secondItem="4oU-uB-w4O" secondAttribute="bottom" constant="8" id="OJv-ak-xrt"/>
+                            <constraint firstItem="4oU-uB-w4O" firstAttribute="leading" secondItem="THM-G0-wj3" secondAttribute="leading" id="SWp-xE-f1j"/>
+                            <constraint firstItem="Lap-UR-niJ" firstAttribute="top" secondItem="Uga-pe-LMg" secondAttribute="bottom" constant="8" id="VuI-gL-xwq"/>
+                            <constraint firstItem="Lap-UR-niJ" firstAttribute="leading" secondItem="XvC-ST-hTk" secondAttribute="leadingMargin" id="gAZ-Oa-F4O"/>
+                            <constraint firstItem="4oU-uB-w4O" firstAttribute="top" secondItem="THM-G0-wj3" secondAttribute="top" id="iyq-iU-9ff"/>
+                            <constraint firstItem="Lap-UR-niJ" firstAttribute="trailing" secondItem="XvC-ST-hTk" secondAttribute="trailingMargin" id="oTh-39-kz6"/>
+                            <constraint firstItem="4oU-uB-w4O" firstAttribute="centerX" secondItem="Uga-pe-LMg" secondAttribute="centerX" id="pAj-hm-mMH"/>
+                            <constraint firstItem="Uga-pe-LMg" firstAttribute="centerX" secondItem="Lap-UR-niJ" secondAttribute="centerX" id="y4r-oj-hxq"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="QtZ-3R-RVb"/>
+                    <connections>
+                        <outlet property="imageView" destination="4oU-uB-w4O" id="ggP-7E-JOq"/>
+                        <outlet property="viewContainer" destination="Lap-UR-niJ" id="dp6-Gh-gMf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bWO-yo-X3Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5184" y="-3542"/>
+            <point key="canvasLocation" x="5182.608695652174" y="-3542.4107142857142"/>
         </scene>
         <!--Categories Table View Controller-->
         <scene sceneID="A2g-PM-g4r">
