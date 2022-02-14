@@ -42,8 +42,6 @@ class CurrentCategoriesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "kitchenCell", for: indexPath) as! RecipeListTableViewCell
-        cell.layer.cornerRadius = 20
-        cell.layer.masksToBounds = true
         let object = recipies[indexPath.row]
         let urlforImage = URL(string: object.image ?? "")
         cell.reciepeImage.kf.setImage(with: urlforImage)
@@ -58,6 +56,16 @@ class CurrentCategoriesTableViewController: UITableViewController {
         return 150
     }
     
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toDetail" {
+            guard let neededVC = segue.destination as? DetailCurrentRecipeViewController else {return}
+            guard let indexPath = tableView.indexPathForSelectedRow else {return}
+            let object = recipies[indexPath.row]
+            neededVC.recipe = object
+            
+        }
+    }
 }
 
 

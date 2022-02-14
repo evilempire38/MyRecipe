@@ -37,10 +37,11 @@ class CategoriesTableViewController: UITableViewController {
         return 1
     }
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
         return categories[section].category
     }
     
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "catCell", for: indexPath) as! CategoriesTableViewCell
         let object = categories[indexPath.section]
