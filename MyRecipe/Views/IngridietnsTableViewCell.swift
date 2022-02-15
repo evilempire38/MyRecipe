@@ -9,9 +9,9 @@ import UIKit
 
 class IngridietnsTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var productTitle: UILabel!
-    @IBOutlet weak var amountTitle: UILabel!
+    @IBOutlet weak var productLabel: UILabel!
     
+    @IBOutlet weak var amountLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
