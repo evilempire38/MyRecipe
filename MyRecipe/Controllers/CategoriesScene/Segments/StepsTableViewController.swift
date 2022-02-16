@@ -21,23 +21,39 @@ class StepsTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-
-        return 1
+        guard let object = recipe?.analyzedInstructions else { return 0 }
+        if object.isEmpty {
+            return 0
+        } else  {
+            return object[0].steps.count
+ 
     }
-
+    }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return recipe?.analyzedInstructions[0].steps.count ?? 0
+        return 1
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "stepsCell", for: indexPath) as! StepsTableViewCell
-        cell.stepsDescriptionTitle.text = recipe?.analyzedInstructions[0].steps[indexPath.row].step
-
-
+        guard let object = recipe?.analyzedInstructions else { return UITableViewCell.init() }
+        if object.isEmpty {
+            
+            return UITableViewCell.init()
+            
+        } else {
+            cell.stepsDescriptionTitle.text = object[0].steps[indexPath.section].step
+        }
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        guard let object = recipe?.analyzedInstructions else { return "nil" }
+        return object[0].steps[section].number.description
+    }
+    
     
 
 
 }
+
