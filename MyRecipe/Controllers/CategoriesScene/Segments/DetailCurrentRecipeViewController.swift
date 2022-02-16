@@ -14,7 +14,7 @@ class DetailCurrentRecipeViewController: UIViewController {
     @IBOutlet weak var viewContainer: UIView!
     @IBOutlet weak var imageView: UIImageView!
     let descriptionView = DescriptionViewController()
-    let ingridientsView  = IngridientsTableViewController()
+    let ingridientsView  = IngredientsTableViewController()
     let stepsView  = StepsTableViewController()
     var views : [UIView]!
  
