@@ -258,7 +258,7 @@
         <scene sceneID="ym7-OM-PDt">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BXA-kz-gFq" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Day Recipe" image="paperplane.circle" catalog="system" id="ahJ-uA-yS3"/>
+                    <tabBarItem key="tabBarItem" title="Day Recipe" image="book" catalog="system" id="ahJ-uA-yS3"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hqM-0e-GRN">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -375,8 +375,8 @@
         <segue reference="7qU-T8-cFH"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="book" catalog="system" width="128" height="99"/>
         <image name="note" catalog="system" width="128" height="106"/>
-        <image name="paperplane.circle" catalog="system" width="128" height="121"/>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

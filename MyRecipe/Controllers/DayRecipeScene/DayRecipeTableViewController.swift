@@ -14,7 +14,7 @@ class DayRecipeTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Recipe of the day"
+        self.title = "Day Recipe"
         networkRequests.fetchRandomRecipe { [weak self] myData in
             guard let self = self else {return}
             self.myRecipe = myData
