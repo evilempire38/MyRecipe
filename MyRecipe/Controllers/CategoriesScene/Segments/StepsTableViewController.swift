@@ -38,9 +38,7 @@ class StepsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "stepsCell", for: indexPath) as! StepsTableViewCell
         guard let object = recipe?.analyzedInstructions else { return UITableViewCell.init() }
         if object.isEmpty {
-            
             return UITableViewCell.init()
-            
         } else {
             cell.stepsDescriptionTitle.text = object[0].steps[indexPath.section].step
         }
