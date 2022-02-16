@@ -156,14 +156,14 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SBa-wo-beM">
-                                            <rect key="frame" x="20" y="11" width="374" height="178"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
                                         </imageView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="SBa-wo-beM" firstAttribute="top" secondItem="loc-ci-SS6" secondAttribute="topMargin" id="C8a-3w-fiv"/>
-                                        <constraint firstItem="SBa-wo-beM" firstAttribute="leading" secondItem="loc-ci-SS6" secondAttribute="leadingMargin" id="LKk-0C-rHh"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="SBa-wo-beM" secondAttribute="trailing" id="MCv-4V-4fW"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="SBa-wo-beM" secondAttribute="bottom" id="xI0-vg-k3o"/>
+                                        <constraint firstItem="SBa-wo-beM" firstAttribute="top" secondItem="loc-ci-SS6" secondAttribute="topMargin" constant="-11" id="C8a-3w-fiv"/>
+                                        <constraint firstItem="SBa-wo-beM" firstAttribute="leading" secondItem="loc-ci-SS6" secondAttribute="leadingMargin" constant="-20" id="LKk-0C-rHh"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="SBa-wo-beM" secondAttribute="trailing" constant="-20" id="MCv-4V-4fW"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="SBa-wo-beM" secondAttribute="bottom" constant="-11" id="xI0-vg-k3o"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -182,7 +182,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gbE-h9-32V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2936" y="-3542"/>
+            <point key="canvasLocation" x="2934.7826086956525" y="-3542.4107142857142"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="pZt-rx-EvP">
@@ -203,7 +203,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dGf-yl-lFa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-577" y="-2498"/>
+            <point key="canvasLocation" x="-248" y="-3058"/>
         </scene>
         <!--Categories-->
         <scene sceneID="KJ1-zf-LGV">
@@ -225,16 +225,16 @@
             </objects>
             <point key="canvasLocation" x="2095.6521739130435" y="-3542.4107142857142"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Search Table View Controller-->
         <scene sceneID="f8w-Ij-ozh">
             <objects>
-                <tableViewController id="EBd-3C-3YG" sceneMemberID="viewController">
+                <tableViewController id="EBd-3C-3YG" customClass="SearchTableViewController" customModule="MyRecipe" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Wqg-cc-qti">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="eZ0-9t-39k">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchCell" id="eZ0-9t-39k" customClass="RecipeListTableViewCell" customModule="MyRecipe" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eZ0-9t-39k" id="xy1-Fc-Pyb">

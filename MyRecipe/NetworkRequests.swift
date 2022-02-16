@@ -7,6 +7,7 @@
 
 
 import Foundation
+import UIKit
 final class NetworkRequests {
     
     var urlConstructorRecipe : URLComponents {
@@ -59,6 +60,10 @@ final class NetworkRequests {
         let task = session.dataTask(with: url) { data, response, err in
             if let err = err {
                 print(err.localizedDescription)
+            }
+            if let response = response as? HTTPURLResponse {
+                print(response.statusCode)
+                
             }
             if let data = data {
                 let decoder = JSONDecoder()
