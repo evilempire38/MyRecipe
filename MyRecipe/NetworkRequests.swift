@@ -7,7 +7,12 @@
 
 
 import Foundation
+import UIKit
 final class NetworkRequests {
+    var requestCounter : Int = 0
+    let usrdfltsmng = UserDefaults.standard
+    
+    
     
     var urlConstructorRecipe : URLComponents {
         var urlConstructor = URLComponents()
@@ -25,6 +30,10 @@ final class NetworkRequests {
     func fetchRandomRecipe(completion : @escaping ([Recipe]) -> Void) {
         let session = URLSession(configuration: .default)
         guard let url = urlConstructorRecipe.url else {return}
+        var currentCounter = usrdfltsmng.integer(forKey: "counter")
+        currentCounter += 1
+        self.usrdfltsmng.set(currentCounter, forKey: "counter")
+        print(usrdfltsmng.integer(forKey: "counter"))
         let task = session.dataTask(with: url) { data, response, err in
             if let err = err {
                 print(err.localizedDescription)
@@ -36,6 +45,7 @@ final class NetworkRequests {
                     DispatchQueue.main.async {
                         completion(recipe.recipes)
                     }
+
                 } catch let error {
                     print(error)
                 }
@@ -56,9 +66,17 @@ final class NetworkRequests {
         
         let session = URLSession(configuration: .default)
         guard let url = urlConstructor.url else {return}
+        var currentCounter = usrdfltsmng.integer(forKey: "counter")
+        currentCounter += 1
+        self.usrdfltsmng.set(currentCounter, forKey: "counter")
+        print(usrdfltsmng.integer(forKey: "counter"))
         let task = session.dataTask(with: url) { data, response, err in
             if let err = err {
                 print(err.localizedDescription)
+            }
+            if let response = response as? HTTPURLResponse {
+                print(response.statusCode)
+                
             }
             if let data = data {
                 let decoder = JSONDecoder()

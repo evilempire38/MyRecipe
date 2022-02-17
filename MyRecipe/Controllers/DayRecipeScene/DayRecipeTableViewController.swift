@@ -14,7 +14,7 @@ class DayRecipeTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Recipe of the day"
+        self.title = "Day Recipe"
         networkRequests.fetchRandomRecipe { [weak self] myData in
             guard let self = self else {return}
             self.myRecipe = myData
@@ -29,36 +29,29 @@ class DayRecipeTableViewController: UITableViewController {
         return 1
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "dayRecipeCell", for: indexPath) as! DayRecipeTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "kitchenCell", for: indexPath) as! RecipeListTableViewCell
         let object = myRecipe[indexPath.row]
-        let urlForImage = URL(string: object.image ?? "")
-        
+        let urlforImage = URL(string: object.image ?? "")
+        cell.reciepeImage.kf.setImage(with: urlforImage)
         cell.recipeTitle.text = object.title
-        cell.recipeRating.text = "Health score : \(object.healthScore)"
         cell.recipeTitle.numberOfLines = 0
-        cell.recipeImage.kf.setImage(with: urlForImage)
+        cell.recipeTitle.lineBreakMode = .byWordWrapping
+        cell.recipeHealthScore.text = "Health score : \(object.healthScore)"
+        cell.recipeTimeToReady.text = "\(object.readyInMinutes) min to ready"
         return cell
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         myRecipe.count
     }
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        90
-    }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "detailSegue" {
-            let currentVC = segue.source as? DayRecipeTableViewController
-            guard let indexPath = self.tableView.indexPathForSelectedRow else {return}
-            let object = currentVC?.myRecipe[indexPath.row]
-            if let detailVC = segue.destination as? DayRecipeDetailViewController {
-                detailVC.DetailNameVCtitle = object?.title
-                detailVC.recipeImageString = object?.image ?? ""
-                detailVC.recipeDescriptionString = object?.instructions ?? "Here should be recipe"
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toDetail2" {
+            guard let neededVC = segue.destination as? DetailCurrentRecipeViewController else {return}
+            guard let indexPath = tableView.indexPathForSelectedRow else {return}
+            let object = myRecipe[indexPath.row]
+            neededVC.recipe = object
             
         }
     }
-
-}
 
 }
