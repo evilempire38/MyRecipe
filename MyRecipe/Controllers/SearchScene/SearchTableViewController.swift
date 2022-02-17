@@ -20,10 +20,9 @@ class SearchTableViewController: UITableViewController  {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSC()
-        
-        
-        
     }
+    
+
     
     // MARK: - Table view data source
     
@@ -50,27 +49,47 @@ class SearchTableViewController: UITableViewController  {
     
     
 }
-extension SearchTableViewController : UISearchResultsUpdating, UISearchBarDelegate {
-    
-    func updateSearchResults(for searchController: UISearchController) {
-    }
+extension SearchTableViewController :  UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let param = searchBar.text else {return}
         request.fetchCatRec(param: param ) {[weak self] myData in
             guard let self = self else {return}
-            self.searchedRecipes = myData
-            self.tableView.reloadData()
+            if myData.isEmpty {
+                self.emptyAlert()
+            } else {
+                
+                self.searchedRecipes = myData
+                self.tableView.reloadData()
+            }
+
         }
     }
     
-    func setupSC () {
-        self.searchController.searchResultsUpdater = self
+    private func emptyAlert(){
+        let ac = UIAlertController(title: "Sorry", message: "We can't offer anything at your request. Try another one", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Okay", style: .cancel, handler: nil)
+        ac.addAction(okAction)
+        present(ac, animated: true, completion: nil)
+    }
+    
+    
+    private func setupSC () {
+
         self.searchController.obscuresBackgroundDuringPresentation = false
-        self.searchController.searchBar.placeholder = "Input you desire"
+        self.searchController.searchBar.placeholder = "a snack? or something else?"
         self.searchController.searchBar.autocapitalizationType = .none
         self.searchController.searchBar.delegate = self
         self.navigationItem.searchController = searchController
         definesPresentationContext = true
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "searchID" {
+            guard let neededVC = segue.destination as? DetailCurrentRecipeViewController else {return}
+            guard let indexPath = tableView.indexPathForSelectedRow else {return}
+            let object = searchedRecipes[indexPath.row]
+            neededVC.recipe = object
+            
+        }
     }
 }
