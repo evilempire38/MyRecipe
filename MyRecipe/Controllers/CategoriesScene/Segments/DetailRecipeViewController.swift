@@ -74,7 +74,7 @@ class DetailRecipeViewController: UIViewController {
         myRecipe.readyInMinutes = Int16(neededRecipe.readyInMinutes)
         myRecipe.id = Int16(neededRecipe.id)
         myRecipe.summary = neededRecipe.summary
-        myRecipe.analyzedInstructions = neededRecipe.analyzedInstructions
+
 
     }
 

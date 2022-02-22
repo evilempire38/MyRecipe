@@ -17,12 +17,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let _ = (scene as? UIWindowScene) else { return }
         
-        let nc = window?.rootViewController as! UINavigationController
-        let vc = nc.topViewController as! DetailRecipeViewController
-        guard let coreDataContext = (UIApplication.shared.delegate as? AppDelegate)?.coreDataStack.persistentContainer.viewContext else {return}
-        vc.context = coreDataContext
-
-        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
