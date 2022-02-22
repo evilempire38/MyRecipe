@@ -58,7 +58,6 @@ class CategoriesTableViewController: UITableViewController {
             guard let indexPath = currentVC.tableView.indexPathForSelectedRow else {return}
             let currentCell = categories[indexPath.section]
             let currentCategory = currentCell.category
-            
             switch currentCategory {
                 
             case "Breakfast" : neededVC.paramForRequest = "breakfast"
