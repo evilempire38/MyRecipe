@@ -9,11 +9,9 @@
 import Foundation
 import UIKit
 final class NetworkRequests {
+    let myQueue = DispatchQueue.global(qos: .utility)
     var requestCounter : Int = 0
     let usrdfltsmng = UserDefaults.standard
-    
-    
-    
     var urlConstructorRecipe : URLComponents {
         var urlConstructor = URLComponents()
         urlConstructor.scheme = "https"
@@ -24,8 +22,6 @@ final class NetworkRequests {
             URLQueryItem(name: "apiKey", value: "41e2c193b894412f8cc14827b6b38630")]
         return urlConstructor
     }
-    
-    
     
     func fetchRandomRecipe(completion : @escaping ([Recipe]) -> Void) {
         let session = URLSession(configuration: .default)
@@ -45,7 +41,7 @@ final class NetworkRequests {
                     DispatchQueue.main.async {
                         completion(recipe.recipes)
                     }
-
+                    
                 } catch let error {
                     print(error)
                 }
@@ -63,7 +59,6 @@ final class NetworkRequests {
             URLQueryItem(name: "number", value: "100"),
             URLQueryItem(name: "apiKey", value: "41e2c193b894412f8cc14827b6b38630"),
             URLQueryItem(name: "tags", value: param)]
-        
         let session = URLSession(configuration: .default)
         guard let url = urlConstructor.url else {return}
         var currentCounter = usrdfltsmng.integer(forKey: "counter")
@@ -76,7 +71,6 @@ final class NetworkRequests {
             }
             if let response = response as? HTTPURLResponse {
                 print(response.statusCode)
-                
             }
             if let data = data {
                 let decoder = JSONDecoder()
@@ -91,7 +85,16 @@ final class NetworkRequests {
             }
         }
         task.resume()
-        
+    }
+    func fetchImage(_ withURL : String, completion : @escaping (UIImage?) -> ())  {
+        myQueue.async {
+            guard let url = URL(string: withURL) else {return}
+            guard let data = try? Data(contentsOf: url) else {return}
+            let image = UIImage(data: data)
+            DispatchQueue.main.async {
+                completion(image)
+            }
+        }
     }
     
 }

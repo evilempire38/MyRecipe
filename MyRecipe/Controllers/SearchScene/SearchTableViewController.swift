@@ -11,10 +11,6 @@ class SearchTableViewController: UITableViewController  {
     
     private let searchController = UISearchController(searchResultsController: nil)
     private var searchedRecipes : [Recipe] = []
-    private var searchBarIsEmpty : Bool {
-        guard let text = searchController.searchBar.text else {return false}
-        return text.isEmpty
-    }
     private let request = NetworkRequests()
     
     override func viewDidLoad() {
@@ -37,8 +33,14 @@ class SearchTableViewController: UITableViewController  {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "searchCell", for: indexPath) as! RecipeListTableViewCell
         let object = searchedRecipes[indexPath.row]
-        let urlforImage = URL(string: object.image ?? "")
-        cell.reciepeImage.kf.setImage(with: urlforImage)
+        if let urlforImage = object.image {
+            cell.activityIndicator.startAnimating()
+            self.request.fetchImage(urlforImage) { [weak self] image in
+                guard let image = image, let self = self else {return}
+                cell.reciepeImage.image = image
+                cell.activityIndicator.stopAnimating()
+            }
+        }
         cell.recipeTitle.text = object.title
         cell.recipeTitle.numberOfLines = 0
         cell.recipeTitle.lineBreakMode = .byWordWrapping
@@ -58,7 +60,6 @@ extension SearchTableViewController :  UISearchBarDelegate {
             if myData.isEmpty {
                 self.emptyAlert()
             } else {
-                
                 self.searchedRecipes = myData
                 self.tableView.reloadData()
             }

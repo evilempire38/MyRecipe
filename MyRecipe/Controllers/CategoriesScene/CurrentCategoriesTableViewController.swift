@@ -6,9 +6,10 @@
 //
 
 import UIKit
-import Kingfisher
+
 
 class CurrentCategoriesTableViewController: UITableViewController {
+
     var recipies = [Recipe]()
     let request = NetworkRequests()
     var titleCategoryType : String = ""
@@ -43,8 +44,14 @@ class CurrentCategoriesTableViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "kitchenCell", for: indexPath) as! RecipeListTableViewCell
         let object = recipies[indexPath.row]
-        let urlforImage = URL(string: object.image ?? "")
-        cell.reciepeImage.kf.setImage(with: urlforImage)
+        if let stringForURL = object.image {
+            cell.activityIndicator.startAnimating()
+            self.request.fetchImage(stringForURL) { [weak self] image in
+                guard let image = image, let self = self else {return}
+                cell.reciepeImage.image = image
+                cell.activityIndicator.stopAnimating()
+            }
+        }
         cell.recipeTitle.text = object.title
         cell.recipeTitle.numberOfLines = 0
         cell.recipeTitle.lineBreakMode = .byWordWrapping
@@ -66,6 +73,7 @@ class CurrentCategoriesTableViewController: UITableViewController {
             
         }
     }
+    
 }
 
 

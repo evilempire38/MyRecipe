@@ -6,10 +6,9 @@
 //
 
 import UIKit
-import Kingfisher
 
 class DetailCurrentRecipeViewController: UIViewController {
-    
+    let networkService = NetworkRequests()
     var recipe : Recipe?
     @IBOutlet weak var viewContainer: UIView!
     @IBOutlet weak var imageView: UIImageView!
@@ -19,9 +18,9 @@ class DetailCurrentRecipeViewController: UIViewController {
     var views : [UIView]!
  
     override func viewDidLoad() {
-        start()
         super.viewDidLoad()
         self.title = recipe?.title
+        start()
         setupViews()
 
 
@@ -31,10 +30,11 @@ class DetailCurrentRecipeViewController: UIViewController {
     private func setupDescriptionVC() {
         descriptionView.descriptionOfRecipe = recipe?.summary.trimHTMLTags() ?? "empty"
         if let url = recipe?.image {
-            let urlForImage = URL(string: url)
-            imageView.kf.setImage(with: urlForImage)
+            networkService.fetchImage(url) { [weak self] image in
+                guard let self = self else {return}
+                self.imageView.image = image
+            }
         }
-
     }
     private func setupIngridientsVC(){
         ingridientsView.recipe = recipe
@@ -47,12 +47,6 @@ class DetailCurrentRecipeViewController: UIViewController {
         setupIngridientsVC()
         setupStepsVC()
     }
-    
-    
-    
-    
-    
-    
     private func setupViews() {
         views = [UIView]()
         descriptionView.view.frame = CGRect(x: 0, y: 0, width: viewContainer.frame.width, height: viewContainer.frame.height)

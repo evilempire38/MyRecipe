@@ -55,10 +55,15 @@
                                                 </label>
                                             </subviews>
                                         </stackView>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="kcW-3d-0HX">
+                                            <rect key="frame" x="75" y="65" width="20" height="20"/>
+                                        </activityIndicatorView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="2AG-ce-HtA" firstAttribute="leading" secondItem="L6S-G9-VF7" secondAttribute="leadingMargin" id="3Pb-aM-ATl"/>
+                                        <constraint firstItem="kcW-3d-0HX" firstAttribute="centerY" secondItem="R67-dG-DF3" secondAttribute="centerY" id="6a1-Fw-C0D"/>
                                         <constraint firstItem="R67-dG-DF3" firstAttribute="bottom" secondItem="2AG-ce-HtA" secondAttribute="bottom" id="Gek-Kh-Opq"/>
+                                        <constraint firstItem="kcW-3d-0HX" firstAttribute="centerX" secondItem="2AG-ce-HtA" secondAttribute="centerX" id="Gpq-ac-rcL"/>
                                         <constraint firstItem="R67-dG-DF3" firstAttribute="top" secondItem="2AG-ce-HtA" secondAttribute="top" id="RoM-uE-uWa"/>
                                         <constraint firstItem="2AG-ce-HtA" firstAttribute="bottom" secondItem="L6S-G9-VF7" secondAttribute="bottomMargin" id="bDH-q6-AsF"/>
                                         <constraint firstItem="2AG-ce-HtA" firstAttribute="top" secondItem="L6S-G9-VF7" secondAttribute="topMargin" id="deZ-c4-Klw"/>
@@ -66,6 +71,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="activityIndicator" destination="kcW-3d-0HX" id="AIT-Cd-nOI"/>
                                     <outlet property="reciepeImage" destination="2AG-ce-HtA" id="WTz-Mc-yb2"/>
                                     <outlet property="recipeHealthScore" destination="EQ5-r4-Z5Z" id="TAa-kz-Ijh"/>
                                     <outlet property="recipeTimeToReady" destination="xbS-fd-Pej" id="qPU-Eo-0Ty"/>
@@ -144,7 +150,7 @@
         <scene sceneID="A2g-PM-g4r">
             <objects>
                 <tableViewController id="EU5-iK-i6o" customClass="CategoriesTableViewController" customModule="MyRecipe" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" id="hrX-cC-nlr">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" id="hrX-cC-nlr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <prototypes>
@@ -209,7 +215,7 @@
         <scene sceneID="KJ1-zf-LGV">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BUZ-5U-uwo" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Categories" image="note" catalog="system" id="YHs-83-kOe"/>
+                    <tabBarItem key="tabBarItem" title="Categories" image="square.and.pencil" catalog="system" id="YHs-83-kOe"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="azA-XZ-jZn"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="0po-S0-sDS">
@@ -310,17 +316,23 @@
                                                 </label>
                                             </subviews>
                                         </stackView>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="eq9-az-CDT">
+                                            <rect key="frame" x="75" y="65" width="20" height="20"/>
+                                        </activityIndicatorView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="1Kc-ng-3WO" firstAttribute="leading" secondItem="Yve-yD-zVx" secondAttribute="leadingMargin" id="3du-XV-wHs"/>
+                                        <constraint firstItem="eq9-az-CDT" firstAttribute="centerX" secondItem="1Kc-ng-3WO" secondAttribute="centerX" id="4G8-S7-Fs4"/>
                                         <constraint firstItem="7fc-9b-2Vc" firstAttribute="bottom" secondItem="1Kc-ng-3WO" secondAttribute="bottom" id="4mT-uv-va9"/>
                                         <constraint firstItem="7fc-9b-2Vc" firstAttribute="leading" secondItem="1Kc-ng-3WO" secondAttribute="trailing" constant="10" id="Gtc-Fm-1Nt"/>
+                                        <constraint firstItem="eq9-az-CDT" firstAttribute="centerY" secondItem="7fc-9b-2Vc" secondAttribute="centerY" id="KGw-ew-aEL"/>
                                         <constraint firstItem="7fc-9b-2Vc" firstAttribute="top" secondItem="1Kc-ng-3WO" secondAttribute="top" id="ZL8-Nm-yYi"/>
                                         <constraint firstItem="1Kc-ng-3WO" firstAttribute="bottom" secondItem="Yve-yD-zVx" secondAttribute="bottomMargin" id="pKw-8n-OXj"/>
                                         <constraint firstItem="1Kc-ng-3WO" firstAttribute="top" secondItem="Yve-yD-zVx" secondAttribute="topMargin" id="wit-2R-NtH"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="activityIndicator" destination="eq9-az-CDT" id="vMf-Io-X4Z"/>
                                     <outlet property="reciepeImage" destination="1Kc-ng-3WO" id="glw-lv-rft"/>
                                     <outlet property="recipeHealthScore" destination="ADi-ek-R3q" id="H5l-Nv-xS1"/>
                                     <outlet property="recipeTimeToReady" destination="Egp-1b-kZm" id="R2a-Ft-HxL"/>
@@ -361,7 +373,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="130" id="EXa-vA-q8j"/>
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="130" id="VA9-82-IZc"/>
-                                                <constraint firstAttribute="height" constant="128" id="l0o-Bv-VkC"/>
+                                                <constraint firstAttribute="height" constant="130" id="l0o-Bv-VkC"/>
                                             </constraints>
                                         </imageView>
                                         <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" distribution="equalCentering" alignment="top" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="n6R-c3-azd">
@@ -387,10 +399,15 @@
                                                 </label>
                                             </subviews>
                                         </stackView>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="vVI-if-PVX">
+                                            <rect key="frame" x="75" y="65" width="20" height="20"/>
+                                        </activityIndicatorView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="n6R-c3-azd" firstAttribute="leading" secondItem="4TC-DU-tK5" secondAttribute="trailing" constant="10" id="0QE-sD-C5u"/>
+                                        <constraint firstItem="vVI-if-PVX" firstAttribute="centerX" secondItem="4TC-DU-tK5" secondAttribute="centerX" id="1fc-WJ-fRx"/>
                                         <constraint firstItem="4TC-DU-tK5" firstAttribute="leading" secondItem="Q8R-WJ-WAm" secondAttribute="leadingMargin" id="2hD-dY-xqy"/>
+                                        <constraint firstItem="vVI-if-PVX" firstAttribute="centerY" secondItem="n6R-c3-azd" secondAttribute="centerY" id="7XT-X3-1Vc"/>
                                         <constraint firstItem="4TC-DU-tK5" firstAttribute="bottom" secondItem="Q8R-WJ-WAm" secondAttribute="bottomMargin" id="AMy-mL-Rya"/>
                                         <constraint firstItem="4TC-DU-tK5" firstAttribute="top" secondItem="Q8R-WJ-WAm" secondAttribute="topMargin" id="LGn-OA-Uth"/>
                                         <constraint firstItem="n6R-c3-azd" firstAttribute="top" secondItem="4TC-DU-tK5" secondAttribute="top" id="jhe-YA-6bB"/>
@@ -398,6 +415,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="activityIndicator" destination="vVI-if-PVX" id="IYs-mR-6gX"/>
                                     <outlet property="reciepeImage" destination="4TC-DU-tK5" id="yKy-Vr-Vlp"/>
                                     <outlet property="recipeHealthScore" destination="fRj-l9-5hB" id="3vO-qa-prX"/>
                                     <outlet property="recipeTimeToReady" destination="WpZ-ak-YZp" id="aCT-cQ-hS1"/>
@@ -424,7 +442,7 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="book" catalog="system" width="128" height="99"/>
-        <image name="note" catalog="system" width="128" height="106"/>
+        <image name="square.and.pencil" catalog="system" width="128" height="115"/>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
