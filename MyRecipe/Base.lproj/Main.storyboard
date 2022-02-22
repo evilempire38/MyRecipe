@@ -92,10 +92,10 @@
             </objects>
             <point key="canvasLocation" x="3889.8550724637685" y="-3542.4107142857142"/>
         </scene>
-        <!--Detail Current Recipe View Controller-->
+        <!--Detail Recipe View Controller-->
         <scene sceneID="kmx-52-WgH">
             <objects>
-                <viewController id="kxI-g0-WNl" customClass="DetailCurrentRecipeViewController" customModule="MyRecipe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="kxI-g0-WNl" customClass="DetailRecipeViewController" customModule="MyRecipe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XvC-ST-hTk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

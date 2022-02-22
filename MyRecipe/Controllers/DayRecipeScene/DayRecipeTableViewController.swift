@@ -52,7 +52,7 @@ class DayRecipeTableViewController: UITableViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toDetail2" {
-            guard let neededVC = segue.destination as? DetailCurrentRecipeViewController else {return}
+            guard let neededVC = segue.destination as? DetailRecipeViewController else {return}
             guard let indexPath = tableView.indexPathForSelectedRow else {return}
             let object = myRecipe[indexPath.row]
             neededVC.recipe = object
