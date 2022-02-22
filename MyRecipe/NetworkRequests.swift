@@ -86,7 +86,8 @@ final class NetworkRequests {
         }
         task.resume()
     }
-    func fetchImage(_ withURL : String, completion : @escaping (UIImage?) -> ())  {
+    
+    func fetchImage(_ withURL : String, completion : @escaping (UIImage?) -> Void )  {
         myQueue.async {
             guard let url = URL(string: withURL) else {return}
             guard let data = try? Data(contentsOf: url) else {return}

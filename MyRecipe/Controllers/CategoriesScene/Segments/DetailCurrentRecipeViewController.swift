@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import CoreData
+
 
 class DetailCurrentRecipeViewController: UIViewController {
     let networkService = NetworkRequests()
@@ -66,4 +68,11 @@ class DetailCurrentRecipeViewController: UIViewController {
         self.viewContainer.bringSubviewToFront(views[sender.selectedSegmentIndex])
     }
     
+    @IBAction func saveToFavouriteList(_ sender: Any) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let coreDataContext = appDelegate.persistentContainer.viewContext
+        guard let entity = NSEntityDescription.entity(forEntityName: "MyFavouriteRecipes", in: coreDataContext) else {return}
+        let recipeObject = MyFavouriteRecipes(entity: entity, insertInto: coreDataContext)
+        
+    }
 }

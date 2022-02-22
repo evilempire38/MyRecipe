@@ -136,7 +136,13 @@
                             <constraint firstItem="Uga-pe-LMg" firstAttribute="centerX" secondItem="Lap-UR-niJ" secondAttribute="centerX" id="y4r-oj-hxq"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="QtZ-3R-RVb"/>
+                    <navigationItem key="navigationItem" id="QtZ-3R-RVb">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="KLJ-8g-mTX">
+                            <connections>
+                                <action selector="saveToFavouriteList:" destination="kxI-g0-WNl" id="GNm-vX-cWq"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="imageView" destination="4oU-uB-w4O" id="ggP-7E-JOq"/>
                         <outlet property="viewContainer" destination="Lap-UR-niJ" id="dp6-Gh-gMf"/>

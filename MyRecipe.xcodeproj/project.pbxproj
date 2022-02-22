@@ -184,9 +184,9 @@
 		9A95F0BC27A2AF7F0059BD29 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				9AD8DA2227BE3BCC004C3355 /* FavoriteScene */,
-				9A7D15D127BD147500D2D77B /* SearchScene */,
 				9A4E84AF27AAB4A6003C9D48 /* CategoriesScene */,
+				9A7D15D127BD147500D2D77B /* SearchScene */,
+				9AD8DA2227BE3BCC004C3355 /* FavoriteScene */,
 				9A4E84AE27AAB499003C9D48 /* DayRecipeScene */,
 			);
 			path = Controllers;

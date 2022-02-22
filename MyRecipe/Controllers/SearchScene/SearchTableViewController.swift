@@ -6,12 +6,16 @@
 //
 
 import UIKit
+import CoreData
 
 class SearchTableViewController: UITableViewController  {
     
+    var context : NSManagedObjectContext = .init()
     private let searchController = UISearchController(searchResultsController: nil)
     private var searchedRecipes : [Recipe] = []
     private let request = NetworkRequests()
+    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
