@@ -524,11 +524,11 @@
             </objects>
             <point key="canvasLocation" x="2935" y="-1282"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="l2U-71-d0X">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7y0-Lv-9g8" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="3NY-w9-iTw"/>
+                    <tabBarItem key="tabBarItem" systemItem="favorites" id="3NY-w9-iTw"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ToP-QZ-HZx">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
