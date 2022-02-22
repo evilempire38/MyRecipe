@@ -74,7 +74,8 @@ class DetailRecipeViewController: UIViewController {
         myRecipe.readyInMinutes = Int16(neededRecipe.readyInMinutes)
         myRecipe.id = Int16(neededRecipe.id)
         myRecipe.summary = neededRecipe.summary
-        myRecipe.analyzedInstructions = .init(array: neededRecipe.analyzedInstructions)
+        myRecipe.analyzedInstructions = NSSet(array: neededRecipe.analyzedInstructions)
+        myRecipe.extendedIngredients = NSSet(array: neededRecipe.extendedIngredients)
         do {
             try context.save()
         }
