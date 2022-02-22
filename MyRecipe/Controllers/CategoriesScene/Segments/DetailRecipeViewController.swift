@@ -74,6 +74,13 @@ class DetailRecipeViewController: UIViewController {
         myRecipe.readyInMinutes = Int16(neededRecipe.readyInMinutes)
         myRecipe.id = Int16(neededRecipe.id)
         myRecipe.summary = neededRecipe.summary
+        myRecipe.analyzedInstructions = .init(array: neededRecipe.analyzedInstructions)
+        do {
+            try context.save()
+        }
+        catch let err as NSError {
+            print(err)
+        }
 
 
     }
@@ -84,7 +91,7 @@ class DetailRecipeViewController: UIViewController {
     }
     
     @IBAction func saveToFavouriteList(_ sender: Any) { 
-        
+        saveToCoreData()
         
     }
     

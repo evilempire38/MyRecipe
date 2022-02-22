@@ -9,24 +9,19 @@ struct RecipeModel: Codable {
 
 // MARK: - Recipe
 struct Recipe: Codable {
-    let vegetarian, vegan : Bool
-    let aggregateLikes, healthScore: Int
+    let vegetarian : Bool
+    let healthScore: Int
     let extendedIngredients: [ExtendedIngredient]
     let id: Int
     let title: String
-    let readyInMinutes, servings: Int
-    let sourceURL: String
+    let readyInMinutes: Int
     let image: String?
     let summary: String
-    let instructions: String
     let analyzedInstructions: [AnalyzedInstruction]
-    let preparationMinutes, cookingMinutes: Int?
 
     enum CodingKeys: String, CodingKey {
-        case vegetarian, vegan, aggregateLikes, healthScore, extendedIngredients, id, title, readyInMinutes, servings
-        case sourceURL = "sourceUrl"
-        case image, summary, instructions, analyzedInstructions
-        case preparationMinutes, cookingMinutes
+        case vegetarian, healthScore, extendedIngredients, id, title, readyInMinutes
+        case image, summary, analyzedInstructions
     }
 }
 
