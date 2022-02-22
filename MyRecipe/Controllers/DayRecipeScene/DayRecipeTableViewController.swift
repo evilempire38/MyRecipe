@@ -34,6 +34,7 @@ class DayRecipeTableViewController: UITableViewController {
         if let urlforImage = object.image {
             cell.activityIndicator.startAnimating()
             networkRequests.fetchImage(urlforImage) {[weak self] image in
+                guard let self = self else {return}
                 cell.reciepeImage.image = image
                 cell.activityIndicator.stopAnimating()
                 
@@ -52,7 +53,7 @@ class DayRecipeTableViewController: UITableViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toDetail2" {
-            guard let neededVC = segue.destination as? DetailCurrentRecipeViewController else {return}
+            guard let neededVC = segue.destination as? DetailRecipeViewController else {return}
             guard let indexPath = tableView.indexPathForSelectedRow else {return}
             let object = myRecipe[indexPath.row]
             neededVC.recipe = object

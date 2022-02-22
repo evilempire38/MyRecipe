@@ -6,12 +6,15 @@
 //
 
 import UIKit
+import CoreData
 
 class SearchTableViewController: UITableViewController  {
     
     private let searchController = UISearchController(searchResultsController: nil)
     private var searchedRecipes : [Recipe] = []
     private let request = NetworkRequests()
+    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,7 +89,7 @@ extension SearchTableViewController :  UISearchBarDelegate {
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "searchID" {
-            guard let neededVC = segue.destination as? DetailCurrentRecipeViewController else {return}
+            guard let neededVC = segue.destination as? DetailRecipeViewController else {return}
             guard let indexPath = tableView.indexPathForSelectedRow else {return}
             let object = searchedRecipes[indexPath.row]
             neededVC.recipe = object

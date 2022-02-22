@@ -6,12 +6,17 @@
 //
 
 import UIKit
+import CoreData
 
-class DetailCurrentRecipeViewController: UIViewController {
-    let networkService = NetworkRequests()
-    var recipe : Recipe?
+
+class DetailRecipeViewController: UIViewController {
+    
+
     @IBOutlet weak var viewContainer: UIView!
     @IBOutlet weak var imageView: UIImageView!
+    var context : NSManagedObjectContext = .init(concurrencyType: .mainQueueConcurrencyType)
+    let networkService = NetworkRequests()
+    var recipe : Recipe?
     let descriptionView = DescriptionViewController()
     let ingridientsView  = IngredientsTableViewController()
     let stepsView  = StepsTableViewController()
@@ -22,9 +27,6 @@ class DetailCurrentRecipeViewController: UIViewController {
         self.title = recipe?.title
         start()
         setupViews()
-
-
-        
     }
     
     private func setupDescriptionVC() {
@@ -60,10 +62,38 @@ class DetailCurrentRecipeViewController: UIViewController {
         }
         viewContainer.bringSubviewToFront(views[0])
     }
+    
+    private func saveToCoreData () {
+        guard let mainRecipeEntity = NSEntityDescription.entity(forEntityName: "MyFavouriteRecipes", in: context) else {return}
+        let myRecipe = MyFavouriteRecipes(entity: mainRecipeEntity, insertInto: context)
+        guard let imageData = imageView.image?.pngData() else {return}
+        guard let neededRecipe = recipe else {return}
+        myRecipe.title = neededRecipe.title
+        myRecipe.image = imageData
+        myRecipe.healthScore = Int16(neededRecipe.healthScore)
+        myRecipe.readyInMinutes = Int16(neededRecipe.readyInMinutes)
+        myRecipe.id = Int16(neededRecipe.id)
+        myRecipe.summary = neededRecipe.summary
+        myRecipe.analyzedInstructions = NSSet(array: neededRecipe.analyzedInstructions)
+        myRecipe.extendedIngredients = NSSet(array: neededRecipe.extendedIngredients)
+        do {
+            try context.save()
+        }
+        catch let err as NSError {
+            print(err)
+        }
+
+
+    }
 
 
     @IBAction func switchViewAction(_ sender: UISegmentedControl) {
         self.viewContainer.bringSubviewToFront(views[sender.selectedSegmentIndex])
+    }
+    
+    @IBAction func saveToFavouriteList(_ sender: Any) { 
+        saveToCoreData()
+        
     }
     
 }

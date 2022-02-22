@@ -9,25 +9,19 @@ struct RecipeModel: Codable {
 
 // MARK: - Recipe
 struct Recipe: Codable {
-    let vegetarian, vegan : Bool
-    let aggregateLikes, healthScore: Int
+    let vegetarian : Bool
+    let healthScore: Int
     let extendedIngredients: [ExtendedIngredient]
     let id: Int
     let title: String
-    let readyInMinutes, servings: Int
-    let sourceURL: String
+    let readyInMinutes: Int
     let image: String?
     let summary: String
-    let cuisines, dishTypes, diets: [String]
-    let instructions: String
     let analyzedInstructions: [AnalyzedInstruction]
-    let preparationMinutes, cookingMinutes: Int?
 
     enum CodingKeys: String, CodingKey {
-        case vegetarian, vegan, aggregateLikes, healthScore, extendedIngredients, id, title, readyInMinutes, servings
-        case sourceURL = "sourceUrl"
-        case image, summary, cuisines, dishTypes, diets , instructions, analyzedInstructions
-        case preparationMinutes, cookingMinutes
+        case vegetarian, healthScore, extendedIngredients, id, title, readyInMinutes
+        case image, summary, analyzedInstructions
     }
 }
 
@@ -41,14 +35,9 @@ struct AnalyzedInstruction: Codable {
 struct Step: Codable {
     let number: Int
     let step: String
-    let ingredients : [Ent]
+
 }
 
-// MARK: - Ent
-struct Ent: Codable {
-    let id: Int
-    let name, localizedName, image: String
-}
 // MARK: - ExtendedIngredient
 struct ExtendedIngredient: Codable {
     let id: Int?
@@ -58,13 +47,12 @@ struct ExtendedIngredient: Codable {
     let original, originalName: String
     let amount: Double
     let unit: String
-    let meta: [String]
     let measures: Measures
 }
 
 // MARK: - Measures
 struct Measures: Codable {
-    let us, metric: Metric
+    let metric: Metric
 }
 // MARK: - Metric
 struct Metric: Codable {

@@ -8,7 +8,7 @@
 import UIKit
 
 class FavouriteTableViewController: UITableViewController {
-    var favouriteRecipe : [Recipe] = []
+    var favouriteRecipe : [MyFavouriteRecipes] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
