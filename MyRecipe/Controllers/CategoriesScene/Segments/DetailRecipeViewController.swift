@@ -11,10 +11,10 @@ import CoreData
 
 class DetailRecipeViewController: UIViewController {
     
-
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+    
     @IBOutlet weak var viewContainer: UIView!
     @IBOutlet weak var imageView: UIImageView!
-    var context : NSManagedObjectContext = .init(concurrencyType: .mainQueueConcurrencyType)
     let networkService = NetworkRequests()
     var recipe : Recipe?
     let descriptionView = DescriptionViewController()
@@ -23,6 +23,7 @@ class DetailRecipeViewController: UIViewController {
     var views : [UIView]!
  
     override func viewDidLoad() {
+        saveButton.isEnabled = false
         super.viewDidLoad()
         self.title = recipe?.title
         start()
@@ -64,6 +65,7 @@ class DetailRecipeViewController: UIViewController {
     }
     
     private func saveToCoreData () {
+        let context = CoreDataStack().persistentContainer.viewContext
         guard let mainRecipeEntity = NSEntityDescription.entity(forEntityName: "MyFavouriteRecipes", in: context) else {return}
         let myRecipe = MyFavouriteRecipes(entity: mainRecipeEntity, insertInto: context)
         guard let imageData = imageView.image?.pngData() else {return}
@@ -74,8 +76,10 @@ class DetailRecipeViewController: UIViewController {
         myRecipe.readyInMinutes = Int16(neededRecipe.readyInMinutes)
         myRecipe.id = Int16(neededRecipe.id)
         myRecipe.summary = neededRecipe.summary
-        myRecipe.analyzedInstructions = NSSet(array: neededRecipe.analyzedInstructions)
-        myRecipe.extendedIngredients = NSSet(array: neededRecipe.extendedIngredients)
+        myRecipe.analyzedInstructions = NSOrderedSet(array: neededRecipe.analyzedInstructions)
+        myRecipe.extendedIngredients = NSOrderedSet(array: neededRecipe.extendedIngredients)
+        
+        
         do {
             try context.save()
         }
