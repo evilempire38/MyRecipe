@@ -582,6 +582,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="JKH-Zz-a2r" kind="show" trigger="accessoryAction" id="0A3-J7-Kqe"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="settingsThemeCell" id="lZG-U6-fhs" customClass="ThemeTableViewCell" customModule="MyRecipe" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="88" width="414" height="43.5"/>
@@ -604,6 +607,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NSG-Ry-ew2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3008.6956521739135" y="-543.08035714285711"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="nyj-PS-PEd">
+            <objects>
+                <viewController id="JKH-Zz-a2r" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UIu-r2-G6P">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Kng-TE-4v0"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ekp-0O-Bnm"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IWC-cD-5iM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3890" y="-543"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
