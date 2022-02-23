@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		9A2D169E27C62FB20089FA10 /* AppInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2D169D27C62FB20089FA10 /* AppInfoViewController.swift */; };
-		9A2D16A027C632290089FA10 /* InfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2D169F27C632290089FA10 /* InfoModel.swift */; };
 		9A2D16A527C634C30089FA10 /* ThemeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2D16A327C634C30089FA10 /* ThemeTableViewCell.swift */; };
 		9A2D16A627C634C30089FA10 /* ThemeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A2D16A427C634C30089FA10 /* ThemeTableViewCell.xib */; };
 		9A2D16AB27C642660089FA10 /* FAQTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2D16A927C642660089FA10 /* FAQTableViewCell.swift */; };
@@ -47,7 +46,6 @@
 
 /* Begin PBXFileReference section */
 		9A2D169D27C62FB20089FA10 /* AppInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoViewController.swift; sourceTree = "<group>"; };
-		9A2D169F27C632290089FA10 /* InfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoModel.swift; sourceTree = "<group>"; };
 		9A2D16A327C634C30089FA10 /* ThemeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeTableViewCell.swift; sourceTree = "<group>"; };
 		9A2D16A427C634C30089FA10 /* ThemeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThemeTableViewCell.xib; sourceTree = "<group>"; };
 		9A2D16A927C642660089FA10 /* FAQTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQTableViewCell.swift; sourceTree = "<group>"; };
@@ -186,7 +184,6 @@
 			children = (
 				9A95F0BF27A2B0830059BD29 /* RecipeModel.swift */,
 				9AE0DE1227B57A5800EB7C04 /* LocalModelForCategories.swift */,
-				9A2D169F27C632290089FA10 /* InfoModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -336,7 +333,6 @@
 				9A2D16AB27C642660089FA10 /* FAQTableViewCell.swift in Sources */,
 				9A96149927BBC7E200F2A233 /* IngredientsTableViewCell.swift in Sources */,
 				9A6FF3FB27BA4CCB00C18D09 /* DetailRecipeViewController.swift in Sources */,
-				9A2D16A027C632290089FA10 /* InfoModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
