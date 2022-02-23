@@ -27,8 +27,8 @@
         <attribute name="summary" optional="YES" attributeType="String"/>
         <attribute name="title" optional="YES" attributeType="String"/>
         <attribute name="vegetarian" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <relationship name="analyzedInstructions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="AnalyzedInstructions" inverseName="myRecipe" inverseEntity="AnalyzedInstructions"/>
-        <relationship name="extendedIngredients" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ExtendedIngredients" inverseName="myRecipe" inverseEntity="ExtendedIngredients"/>
+        <relationship name="analyzedInstructions" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="AnalyzedInstructions" inverseName="myRecipe" inverseEntity="AnalyzedInstructions"/>
+        <relationship name="extendedIngredients" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="ExtendedIngredients" inverseName="myRecipe" inverseEntity="ExtendedIngredients"/>
     </entity>
     <entity name="Steps" representedClassName="Steps" syncable="YES" codeGenerationType="class">
         <attribute name="number" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
@@ -36,7 +36,7 @@
         <relationship name="analyzedInstr" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AnalyzedInstructions" inverseName="steps" inverseEntity="AnalyzedInstructions"/>
     </entity>
     <elements>
-        <element name="AnalyzedInstructions" positionX="144.230712890625" positionY="173.6314086914062" width="128" height="88"/>
+        <element name="AnalyzedInstructions" positionX="144.230712890625" positionY="173.6314086914062" width="128" height="74"/>
         <element name="ExtendedIngredients" positionX="336.997314453125" positionY="-448.3003692626953" width="128" height="88"/>
         <element name="Measure" positionX="660.781982421875" positionY="-430.4230346679688" width="128" height="73"/>
         <element name="Metrics" positionX="1082.120300292969" positionY="-416.8218994140625" width="128" height="88"/>

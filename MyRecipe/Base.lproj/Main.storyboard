@@ -145,6 +145,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="imageView" destination="4oU-uB-w4O" id="ggP-7E-JOq"/>
+                        <outlet property="saveButton" destination="KLJ-8g-mTX" id="zIU-Af-p53"/>
                         <outlet property="viewContainer" destination="Lap-UR-niJ" id="dp6-Gh-gMf"/>
                     </connections>
                 </viewController>
