@@ -3,7 +3,7 @@
     <entity name="AnalyzedInstructions" representedClassName="AnalyzedInstructions" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="myRecipe" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MyFavouriteRecipes" inverseName="analyzedInstructions" inverseEntity="MyFavouriteRecipes"/>
-        <relationship name="steps" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Steps" inverseName="analyzedInstr" inverseEntity="Steps"/>
+        <relationship name="steps" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Steps" inverseName="analyzedInstr" inverseEntity="Steps"/>
     </entity>
     <entity name="ExtendedIngredients" representedClassName="ExtendedIngredients" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String"/>
