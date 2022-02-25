@@ -10,6 +10,7 @@ import CoreData
 
 
 class FavouriteTableViewController: UITableViewController {
+    let coreDataStack = CoreDataStack()
     var favouriteRecipe : [MyFavouriteRecipes] = []
 
     override func viewDidLoad() {
