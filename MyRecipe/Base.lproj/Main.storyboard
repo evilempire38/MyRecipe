@@ -512,6 +512,7 @@
                                     <outlet property="recipeHealthScore" destination="kPs-zR-ATU" id="L0h-W5-iUS"/>
                                     <outlet property="recipeTimeToReady" destination="Qgk-4i-ydp" id="l56-C5-xS0"/>
                                     <outlet property="recipeTitle" destination="5Oj-RT-f9i" id="kL1-nu-YkS"/>
+                                    <segue destination="kxI-g0-WNl" kind="show" identifier="favouriteSegue" id="fSq-Ui-gQc"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -626,7 +627,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="uDv-lU-b6l"/>
+        <segue reference="fSq-Ui-gQc"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="book" catalog="system" width="128" height="99"/>

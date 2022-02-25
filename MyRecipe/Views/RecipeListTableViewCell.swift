@@ -17,6 +17,7 @@ class RecipeListTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        reciepeImage.layer.cornerRadius = reciepeImage.frame.height / 2
         activityIndicator.hidesWhenStopped = true
         
     }
@@ -31,5 +32,7 @@ class RecipeListTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+
 
 }

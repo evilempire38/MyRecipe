@@ -15,8 +15,10 @@ class DetailRecipeViewController: UIViewController {
     
     @IBOutlet weak var viewContainer: UIView!
     @IBOutlet weak var imageView: UIImageView!
+    let favouriteVC = FavouriteTableViewController()
     let networkService = NetworkRequests()
     var recipe : Recipe?
+    var coreDataRecipe : MyFavouriteRecipes?
     let descriptionView = DescriptionViewController()
     let ingridientsView  = IngredientsTableViewController()
     let stepsView  = StepsTableViewController()
@@ -31,21 +33,40 @@ class DetailRecipeViewController: UIViewController {
     }
     
     private func setupDescriptionVC() {
-        descriptionView.descriptionOfRecipe = recipe?.summary.trimHTMLTags() ?? "empty"
-        if let url = recipe?.image {
-            networkService.fetchImage(url) { [weak self] image in
-                guard let self = self else {return}
-                self.imageView.image = image
+        if coreDataRecipe == nil {
+            descriptionView.descriptionOfRecipe = recipe?.summary.trimHTMLTags() ?? "empty"
+            if let url = recipe?.image {
+                networkService.fetchImage(url) { [weak self] image in
+                    guard let self = self else {return}
+                    self.imageView.image = image
+                }
             }
+        } else {
+            descriptionView.descriptionOfRecipe = coreDataRecipe?.summary?.trimHTMLTags() ?? "empty"
+            guard let data = coreDataRecipe?.image else {return}
+            guard let image = UIImage(data: data) else {return}
+            self.imageView.image = image
         }
+
     }
     private func setupIngridientsVC(){
-        ingridientsView.recipe = recipe
+        if coreDataRecipe == nil {
+            ingridientsView.recipe = recipe
+        } else {
+            ingridientsView.coreDataRecipe = coreDataRecipe
+        }
+        
     }
     private func setupStepsVC(){
-        stepsView.recipe = recipe
+        if coreDataRecipe == nil {
+            stepsView.recipe = recipe
+        } else {
+            stepsView.coreDataRecipe = coreDataRecipe
+        }
+        
     }
     private func start(){
+        favouriteVC.callAC(title: "", message: "", style: .alert)
         setupDescriptionVC()
         setupIngridientsVC()
         setupStepsVC()
@@ -65,7 +86,6 @@ class DetailRecipeViewController: UIViewController {
     }
     
     private func saveToCoreData () {
-
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.coreDataStack.persistentContainer.viewContext
         guard let imageData = imageView.image?.pngData() else {return}
@@ -78,48 +98,45 @@ class DetailRecipeViewController: UIViewController {
         myRecipe.id = Int32(neededRecipe.id)
         myRecipe.summary = neededRecipe.summary
         myRecipe.vegetarian = neededRecipe.vegetarian
-        
-        // делаем связь внутри коредаты и создаем зависимые объекты
         neededRecipe.analyzedInstructions.forEach { analyzedInstruction in
             let analyzedInstructionCoreData = AnalyzedInstructions(context:  context)
             analyzedInstructionCoreData.name = analyzedInstruction.name
             print(analyzedInstruction.name)
             analyzedInstructionCoreData.myRecipe = myRecipe
-            
-            // сохраним объект steps в базе CoreData
             analyzedInstruction.steps.forEach{ step in
                 let stepCoreData = Steps(context:  context)
                 stepCoreData.number = Int64(step.number)
                 stepCoreData.step = step.step
                 stepCoreData.analyzedInstr = analyzedInstructionCoreData
-                
             }
         }
         neededRecipe.extendedIngredients.forEach { extendedIngredietns in
-        
             let extendedIngredietnsCoreData = ExtendedIngredients(context: context)
             extendedIngredietnsCoreData.name = extendedIngredietns.name
             extendedIngredietnsCoreData.myRecipe = myRecipe
-            
             let measuresCoreData = Measure(context: context)
             measuresCoreData.extended = extendedIngredietnsCoreData
-
             let metricCoreData = Metrics(context: context)
             metricCoreData.amount = extendedIngredietns.measures.metric.amount
             metricCoreData.unitLong = extendedIngredietns.measures.metric.unitLong
             metricCoreData.measure = measuresCoreData
-        
         }
         do {
             try context.save()
+            callmyAc(with: "Done", message: "Recipe was saved", style: .alert, titleButton: "OK", styleButton: .cancel)
         }
-        catch let error {
-            print(error)
+        catch  {
+            callmyAc(with: "Error", message: "Something happened", style: .alert, titleButton: "OK", styleButton: .cancel)
         }
 
     }
     
-    
+    private func callmyAc(with title : String, message : String?, style : UIAlertController.Style, titleButton : String, styleButton : UIAlertAction.Style){
+        let ac = UIAlertController(title: title, message: message, preferredStyle: style)
+        let action = UIAlertAction(title: titleButton, style: styleButton, handler: nil)
+        ac.addAction(action)
+        self.present(ac, animated: true, completion: nil)
+    }
     
     
     @IBAction func switchViewAction(_ sender: UISegmentedControl) {
