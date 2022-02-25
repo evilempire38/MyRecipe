@@ -11,7 +11,7 @@ struct RecipeModel: Codable {
 struct Recipe: Codable {
     let vegetarian : Bool
     let healthScore: Int
-    let extendedIngredients: [ExtendedIngredient]
+    var extendedIngredients: [ExtendedIngredient]
     let id: Int
     let title: String
     let readyInMinutes: Int
@@ -47,17 +47,17 @@ struct ExtendedIngredient: Codable {
     let original, originalName: String
     let amount: Double
     let unit: String
-    let measures: Measures
+    var measures: Measures
 }
 
 // MARK: - Measures
 struct Measures: Codable {
-    let metric: Metric
+    var metric: Metric
 }
 // MARK: - Metric
 struct Metric: Codable {
-    let amount: Double
-    let unitShort, unitLong: String
+    var amount: Double
+    var unitShort, unitLong: String
 }
 
 

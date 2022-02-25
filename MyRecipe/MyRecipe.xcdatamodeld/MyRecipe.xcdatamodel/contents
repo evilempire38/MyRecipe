@@ -11,17 +11,17 @@
         <relationship name="myRecipe" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MyFavouriteRecipes" inverseName="extendedIngredients" inverseEntity="MyFavouriteRecipes"/>
     </entity>
     <entity name="Measure" representedClassName="Measure" syncable="YES" codeGenerationType="class">
-        <relationship name="extended" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ExtendedIngredients" inverseName="measures" inverseEntity="ExtendedIngredients"/>
-        <relationship name="metric" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Metrics" inverseName="measure" inverseEntity="Metrics"/>
+        <relationship name="extended" maxCount="1" deletionRule="Nullify" destinationEntity="ExtendedIngredients" inverseName="measures" inverseEntity="ExtendedIngredients"/>
+        <relationship name="metric" maxCount="1" deletionRule="Nullify" destinationEntity="Metrics" inverseName="measure" inverseEntity="Metrics"/>
     </entity>
     <entity name="Metrics" representedClassName="Metrics" syncable="YES" codeGenerationType="class">
         <attribute name="amount" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="unitLong" optional="YES" attributeType="String"/>
-        <relationship name="measure" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Measure" inverseName="metric" inverseEntity="Measure"/>
+        <relationship name="measure" maxCount="1" deletionRule="Nullify" destinationEntity="Measure" inverseName="metric" inverseEntity="Measure"/>
     </entity>
     <entity name="MyFavouriteRecipes" representedClassName="MyFavouriteRecipes" syncable="YES" codeGenerationType="class">
         <attribute name="healthScore" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="image" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
         <attribute name="readyInMinutes" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="summary" optional="YES" attributeType="String"/>
@@ -38,9 +38,9 @@
     <elements>
         <element name="AnalyzedInstructions" positionX="144.230712890625" positionY="173.6314086914062" width="128" height="74"/>
         <element name="ExtendedIngredients" positionX="336.997314453125" positionY="-448.3003692626953" width="128" height="88"/>
-        <element name="Measure" positionX="660.781982421875" positionY="-430.4230346679688" width="128" height="73"/>
-        <element name="Metrics" positionX="1082.120300292969" positionY="-416.8218994140625" width="128" height="88"/>
-        <element name="MyFavouriteRecipes" positionX="-173.6388549804687" positionY="-352.1276245117188" width="161.9684448242188" height="178"/>
-        <element name="Steps" positionX="334.445556640625" positionY="186.8128662109375" width="128" height="88"/>
+        <element name="Measure" positionX="660.781982421875" positionY="-430.4230346679688" width="128" height="59"/>
+        <element name="Metrics" positionX="1082.120300292969" positionY="-416.8218994140625" width="128" height="74"/>
+        <element name="MyFavouriteRecipes" positionX="-173.6388549804687" positionY="-352.1276245117188" width="161.9684448242188" height="164"/>
+        <element name="Steps" positionX="334.445556640625" positionY="186.8128662109375" width="128" height="74"/>
     </elements>
 </model>

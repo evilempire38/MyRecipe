@@ -14,18 +14,13 @@ class CurrentCategoriesTableViewController: UITableViewController {
     let request = NetworkRequests()
     var titleCategoryType : String = ""
     var paramForRequest : String = ""
-    
-    
     override func viewDidLoad() {
-
-        
         super.viewDidLoad()
         self.tableView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         self.title = "\(titleCategoryType)"
         request.fetchCatRec(param: paramForRequest) { [weak self] product in
-            
             guard let self = self else {return}
-            self.recipies = product
+            self.recipies = product.shuffled()
             self.tableView.reloadData()
         }
 

@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A2D169E27C62FB20089FA10 /* AppInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2D169D27C62FB20089FA10 /* AppInfoViewController.swift */; };
+		9A2D16A527C634C30089FA10 /* ThemeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2D16A327C634C30089FA10 /* ThemeTableViewCell.swift */; };
+		9A2D16A627C634C30089FA10 /* ThemeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A2D16A427C634C30089FA10 /* ThemeTableViewCell.xib */; };
+		9A2D16AB27C642660089FA10 /* FAQTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2D16A927C642660089FA10 /* FAQTableViewCell.swift */; };
+		9A2D16AC27C642660089FA10 /* FAQTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A2D16AA27C642660089FA10 /* FAQTableViewCell.xib */; };
 		9A4E84B227AAB4F2003C9D48 /* CurrentCategoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4E84B127AAB4F2003C9D48 /* CurrentCategoriesTableViewController.swift */; };
 		9A6FF3FB27BA4CCB00C18D09 /* DetailRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6FF3FA27BA4CCB00C18D09 /* DetailRecipeViewController.swift */; };
 		9A7D15CF27BBE1B200D2D77B /* StepsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D15CD27BBE1B200D2D77B /* StepsTableViewCell.swift */; };
@@ -40,6 +45,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9A2D169D27C62FB20089FA10 /* AppInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoViewController.swift; sourceTree = "<group>"; };
+		9A2D16A327C634C30089FA10 /* ThemeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeTableViewCell.swift; sourceTree = "<group>"; };
+		9A2D16A427C634C30089FA10 /* ThemeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThemeTableViewCell.xib; sourceTree = "<group>"; };
+		9A2D16A927C642660089FA10 /* FAQTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQTableViewCell.swift; sourceTree = "<group>"; };
+		9A2D16AA27C642660089FA10 /* FAQTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FAQTableViewCell.xib; sourceTree = "<group>"; };
 		9A4E84B127AAB4F2003C9D48 /* CurrentCategoriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentCategoriesTableViewController.swift; sourceTree = "<group>"; };
 		9A6FF3FA27BA4CCB00C18D09 /* DetailRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRecipeViewController.swift; sourceTree = "<group>"; };
 		9A7D15CD27BBE1B200D2D77B /* StepsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsTableViewCell.swift; sourceTree = "<group>"; };
@@ -85,6 +95,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9A2D169C27C62F550089FA10 /* AppInfoScene */ = {
+			isa = PBXGroup;
+			children = (
+				9A2D169D27C62FB20089FA10 /* AppInfoViewController.swift */,
+			);
+			path = AppInfoScene;
+			sourceTree = "<group>";
+		};
 		9A4E84AE27AAB499003C9D48 /* DayRecipeScene */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,12 +169,12 @@
 				9A95F09F27A2A6450059BD29 /* SceneDelegate.swift */,
 				9A95F0C127A2B8D40059BD29 /* NetworkRequests.swift */,
 				9A98DD1A27C4E7CD00708BDF /* MyExtansions.swift */,
+				9A80671327C51AAE00BA0445 /* CoreDataStack.swift */,
 				9A95F0A327A2A6450059BD29 /* Main.storyboard */,
 				9A95F0AB27A2A6480059BD29 /* LaunchScreen.storyboard */,
 				9A95F0A927A2A6480059BD29 /* Assets.xcassets */,
 				9A95F0AE27A2A6480059BD29 /* Info.plist */,
 				9A95F0A627A2A6450059BD29 /* MyRecipe.xcdatamodeld */,
-				9A80671327C51AAE00BA0445 /* CoreDataStack.swift */,
 			);
 			path = MyRecipe;
 			sourceTree = "<group>";
@@ -180,6 +198,10 @@
 				9A96149827BBC7E200F2A233 /* IngredientsTableViewCell.xib */,
 				9A7D15CD27BBE1B200D2D77B /* StepsTableViewCell.swift */,
 				9A7D15CE27BBE1B200D2D77B /* StepsTableViewCell.xib */,
+				9A2D16A327C634C30089FA10 /* ThemeTableViewCell.swift */,
+				9A2D16A427C634C30089FA10 /* ThemeTableViewCell.xib */,
+				9A2D16A927C642660089FA10 /* FAQTableViewCell.swift */,
+				9A2D16AA27C642660089FA10 /* FAQTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -187,6 +209,7 @@
 		9A95F0BC27A2AF7F0059BD29 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9A2D169C27C62F550089FA10 /* AppInfoScene */,
 				9A4E84AF27AAB4A6003C9D48 /* CategoriesScene */,
 				9A7D15D127BD147500D2D77B /* SearchScene */,
 				9AD8DA2227BE3BCC004C3355 /* FavoriteScene */,
@@ -269,9 +292,11 @@
 				9A7D15D027BBE1B200D2D77B /* StepsTableViewCell.xib in Resources */,
 				9AEA6A7627BA71D400AF0DE4 /* StepsTableViewController.xib in Resources */,
 				9AEA6A6E27BA71A700AF0DE4 /* DescriptionViewController.xib in Resources */,
+				9A2D16A627C634C30089FA10 /* ThemeTableViewCell.xib in Resources */,
 				9A95F0AA27A2A6480059BD29 /* Assets.xcassets in Resources */,
 				9AEA6A7227BA71C600AF0DE4 /* IngridientsTableViewController.xib in Resources */,
 				9A95F0A527A2A6450059BD29 /* Main.storyboard in Resources */,
+				9A2D16AC27C642660089FA10 /* FAQTableViewCell.xib in Resources */,
 				9A96149A27BBC7E200F2A233 /* IngredientsTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -290,11 +315,13 @@
 				9A4E84B227AAB4F2003C9D48 /* CurrentCategoriesTableViewController.swift in Sources */,
 				9A7D15CF27BBE1B200D2D77B /* StepsTableViewCell.swift in Sources */,
 				9AEA6A7527BA71D400AF0DE4 /* StepsTableViewController.swift in Sources */,
+				9A2D169E27C62FB20089FA10 /* AppInfoViewController.swift in Sources */,
 				9A7D15D327BD149600D2D77B /* SearchTableViewController.swift in Sources */,
 				9A95F09E27A2A6450059BD29 /* AppDelegate.swift in Sources */,
 				9AEA6A7127BA71C600AF0DE4 /* IngredientsTableViewController.swift in Sources */,
 				9AE0DE1727B58C0B00EB7C04 /* CategoriesTableViewCell.swift in Sources */,
 				9A95F0A027A2A6450059BD29 /* SceneDelegate.swift in Sources */,
+				9A2D16A527C634C30089FA10 /* ThemeTableViewCell.swift in Sources */,
 				9A95F0C227A2B8D40059BD29 /* NetworkRequests.swift in Sources */,
 				9A95F0C027A2B0830059BD29 /* RecipeModel.swift in Sources */,
 				9A95F0C427A2C88A0059BD29 /* DayRecipeTableViewCell.swift in Sources */,
@@ -303,6 +330,7 @@
 				9A80671427C51AAE00BA0445 /* CoreDataStack.swift in Sources */,
 				9A98DD1B27C4E7CD00708BDF /* MyExtansions.swift in Sources */,
 				9A95F0A827A2A6450059BD29 /* MyRecipe.xcdatamodeld in Sources */,
+				9A2D16AB27C642660089FA10 /* FAQTableViewCell.swift in Sources */,
 				9A96149927BBC7E200F2A233 /* IngredientsTableViewCell.swift in Sources */,
 				9A6FF3FB27BA4CCB00C18D09 /* DetailRecipeViewController.swift in Sources */,
 			);

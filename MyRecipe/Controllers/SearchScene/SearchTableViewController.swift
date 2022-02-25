@@ -79,7 +79,7 @@ extension SearchTableViewController :  UISearchBarDelegate {
     
     
     private func setupSC () {
-
+        self.title = "Search"
         self.searchController.obscuresBackgroundDuringPresentation = false
         self.searchController.searchBar.placeholder = "a snack? or something else?"
         self.searchController.searchBar.autocapitalizationType = .none

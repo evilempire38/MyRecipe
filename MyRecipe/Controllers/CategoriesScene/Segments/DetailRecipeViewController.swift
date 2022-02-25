@@ -21,9 +21,9 @@ class DetailRecipeViewController: UIViewController {
     let ingridientsView  = IngredientsTableViewController()
     let stepsView  = StepsTableViewController()
     var views : [UIView]!
- 
+    
     override func viewDidLoad() {
-        saveButton.isEnabled = false
+
         super.viewDidLoad()
         self.title = recipe?.title
         start()
@@ -65,37 +65,68 @@ class DetailRecipeViewController: UIViewController {
     }
     
     private func saveToCoreData () {
-        let context = CoreDataStack().persistentContainer.viewContext
-        guard let mainRecipeEntity = NSEntityDescription.entity(forEntityName: "MyFavouriteRecipes", in: context) else {return}
-        let myRecipe = MyFavouriteRecipes(entity: mainRecipeEntity, insertInto: context)
+
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.coreDataStack.persistentContainer.viewContext
         guard let imageData = imageView.image?.pngData() else {return}
         guard let neededRecipe = recipe else {return}
+        let myRecipe = MyFavouriteRecipes(context: context)
         myRecipe.title = neededRecipe.title
         myRecipe.image = imageData
         myRecipe.healthScore = Int16(neededRecipe.healthScore)
         myRecipe.readyInMinutes = Int16(neededRecipe.readyInMinutes)
-        myRecipe.id = Int16(neededRecipe.id)
+        myRecipe.id = Int32(neededRecipe.id)
         myRecipe.summary = neededRecipe.summary
-        myRecipe.analyzedInstructions = NSOrderedSet(array: neededRecipe.analyzedInstructions)
-        myRecipe.extendedIngredients = NSOrderedSet(array: neededRecipe.extendedIngredients)
+        myRecipe.vegetarian = neededRecipe.vegetarian
         
+        // делаем связь внутри коредаты и создаем зависимые объекты
+        neededRecipe.analyzedInstructions.forEach { analyzedInstruction in
+            let analyzedInstructionCoreData = AnalyzedInstructions(context:  context)
+            analyzedInstructionCoreData.name = analyzedInstruction.name
+            print(analyzedInstruction.name)
+            analyzedInstructionCoreData.myRecipe = myRecipe
+            
+            // сохраним объект steps в базе CoreData
+            analyzedInstruction.steps.forEach{ step in
+                let stepCoreData = Steps(context:  context)
+                stepCoreData.number = Int64(step.number)
+                stepCoreData.step = step.step
+                stepCoreData.analyzedInstr = analyzedInstructionCoreData
+                
+            }
+        }
+        neededRecipe.extendedIngredients.forEach { extendedIngredietns in
         
+            let extendedIngredietnsCoreData = ExtendedIngredients(context: context)
+            extendedIngredietnsCoreData.name = extendedIngredietns.name
+            extendedIngredietnsCoreData.myRecipe = myRecipe
+            
+            let measuresCoreData = Measure(context: context)
+            measuresCoreData.extended = extendedIngredietnsCoreData
+
+            let metricCoreData = Metrics(context: context)
+            metricCoreData.amount = extendedIngredietns.measures.metric.amount
+            metricCoreData.unitLong = extendedIngredietns.measures.metric.unitLong
+            metricCoreData.measure = measuresCoreData
+        
+        }
         do {
             try context.save()
         }
-        catch let err as NSError {
-            print(err)
+        catch let error {
+            print(error)
         }
 
-
     }
-
-
+    
+    
+    
+    
     @IBAction func switchViewAction(_ sender: UISegmentedControl) {
         self.viewContainer.bringSubviewToFront(views[sender.selectedSegmentIndex])
     }
     
-    @IBAction func saveToFavouriteList(_ sender: Any) { 
+    @IBAction func saveToFavouriteList(_ sender: Any) {
         saveToCoreData()
         
     }
