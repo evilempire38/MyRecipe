@@ -42,7 +42,7 @@ class FavouriteTableViewController: UITableViewController {
     private func prepareTableView(){
         loadMyFavouriteRecipes()
         tableView.tableFooterView = UIView()
-        tableView.bounces = false
+        
     }
      func callAC (title : String, message : String, style : UIAlertController.Style) {
         let ac = UIAlertController(title: title, message: message, preferredStyle: style)
