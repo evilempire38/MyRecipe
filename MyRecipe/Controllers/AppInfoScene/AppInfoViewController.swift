@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MessageUI
 
 class AppInfoTableViewController: UITableViewController {
 
@@ -13,9 +14,6 @@ class AppInfoTableViewController: UITableViewController {
         super.viewDidLoad()
         registerMyCustomCell()
         configMyTableView()
-
-        
-
     }
     private func configMyTableView () {
         self.title = "More"
@@ -65,9 +63,40 @@ class AppInfoTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 1 {
             performSegue(withIdentifier: "faq", sender: self)
+        } else if indexPath.row == 2 {
+            showMailComposer()
         }
     }
  
+    
+}
+extension AppInfoTableViewController : MFMailComposeViewControllerDelegate {
+   func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+         if let _ = error {
+             controller.dismiss(animated: true, completion: nil)
+             return
+         }
+         switch result {
+         case .cancelled:
+             break
+         case .failed:
+             break
+         case .saved:
+             break
+         case .sent:
+             break
+         }
+         controller.dismiss(animated: true, completion: nil)
+     }
+    private func showMailComposer() {
+        guard MFMailComposeViewController.canSendMail() else {return}
+        let composer = MFMailComposeViewController()
+        composer.mailComposeDelegate = self
+        composer.setToRecipients(["evilempire38@gmail.com"])
+        composer.setSubject("MyRecipe issues")
+        composer.setMessageBody("Hello, Andrey! I have some issue :", isHTML: false)
+        present(composer, animated: true, completion: nil)
+    }
     
 }
 

@@ -8,7 +8,9 @@
 import UIKit
 
 class CategoriesTableViewController: UITableViewController {
+    var firstStart : Bool = true
     let titleForVC : String = "Categories"
+    let infoVC = InfoUIViewController()
     let categories : [LocalModelForCategories] = [
         LocalModelForCategories(category: "Breakfast", imageCategory: "breakfast"),
         LocalModelForCategories(category: "Lunch", imageCategory: "lunch"),
@@ -20,6 +22,7 @@ class CategoriesTableViewController: UITableViewController {
         LocalModelForCategories(category: "Vegetarian", imageCategory: "vegeterian")]
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         self.title = titleForVC
         

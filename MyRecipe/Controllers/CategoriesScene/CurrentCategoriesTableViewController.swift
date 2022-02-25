@@ -39,10 +39,12 @@ class CurrentCategoriesTableViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "kitchenCell", for: indexPath) as! RecipeListTableViewCell
         let object = recipies[indexPath.row]
+        
         if let stringForURL = object.image {
+            
             cell.activityIndicator.startAnimating()
             self.request.fetchImage(stringForURL) { [weak self] image in
-                guard let image = image, let self = self else {return}
+                
                 cell.reciepeImage.image = image
                 cell.activityIndicator.stopAnimating()
             }

@@ -16,6 +16,8 @@ class StepsTableViewController: UITableViewController {
         tableView.register(UINib(nibName: "StepsTableViewCell", bundle: nil), forCellReuseIdentifier: "stepsCell")
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 600
+        tableView.tableFooterView = UIView()
+        
 
     }
 
@@ -72,6 +74,9 @@ class StepsTableViewController: UITableViewController {
             return description.number.description
         }
 
+    }
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 15
     }
     
     
