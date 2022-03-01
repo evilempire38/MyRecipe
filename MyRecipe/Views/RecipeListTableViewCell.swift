@@ -7,16 +7,26 @@
 
 import UIKit
 
-class KitcheTableViewCell: UITableViewCell {
+class RecipeListTableViewCell: UITableViewCell {
     @IBOutlet weak var reciepeImage: UIImageView!
     @IBOutlet weak var recipeTitle: UILabel!
     @IBOutlet weak var recipeHealthScore: UILabel!
     @IBOutlet weak var recipeTimeToReady: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        recipeTitle.numberOfLines = 0
+        recipeTitle.lineBreakMode = .byWordWrapping
+        reciepeImage.layer.cornerRadius = reciepeImage.frame.height / 2
+        activityIndicator.hidesWhenStopped = true
         
+    }
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        reciepeImage.image = nil
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -24,5 +34,7 @@ class KitcheTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+
 
 }
