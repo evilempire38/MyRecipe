@@ -7,9 +7,9 @@
 
 import UIKit
 
-class StepsTableViewController: UITableViewController {
-    var recipe : Recipe?
-    var coreDataRecipe : MyFavouriteRecipes?
+final class StepsTableViewController: UITableViewController {
+     var recipe : Recipe?
+     var coreDataRecipe : MyFavouriteRecipes?
         
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -9,6 +9,7 @@ import Foundation
 import CoreData
 
 class CoreDataStack {
+    
     lazy var persistentContainer: NSPersistentContainer = {
         
         let container = NSPersistentContainer(name: "MyRecipe")
@@ -30,6 +31,11 @@ class CoreDataStack {
             }
         }
     }
+}
+
+
+extension CoreDataStack {
+    
 }
 
 
