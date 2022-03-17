@@ -9,20 +9,20 @@ import UIKit
 import CoreData
 
 
-class DetailRecipeViewController: UIViewController {
+final class DetailRecipeViewController: UIViewController {
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
     @IBOutlet weak var viewContainer: UIView!
     @IBOutlet weak var imageView: UIImageView!
-    let favouriteVC = FavouriteTableViewController()
-    let networkService = NetworkRequests()
-    var recipe : Recipe?
-    var coreDataRecipe : MyFavouriteRecipes?
-    let descriptionView = DescriptionViewController()
-    let ingridientsView  = IngredientsTableViewController()
-    let stepsView  = StepsTableViewController()
-    var views : [UIView]!
+    private let favouriteVC = FavouriteTableViewController()
+    private let networkService = NetworkRequests()
+     var recipe : Recipe?
+     var coreDataRecipe : MyFavouriteRecipes?
+    private let descriptionView = DescriptionViewController()
+    private let ingridientsView  = IngredientsTableViewController()
+    private let stepsView  = StepsTableViewController()
+    private var views : [UIView]!
     
     override func viewDidLoad() {
 

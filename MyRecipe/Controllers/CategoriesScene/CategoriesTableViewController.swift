@@ -8,10 +8,11 @@
 import UIKit
 
 class CategoriesTableViewController: UITableViewController {
-    var firstStart : Bool = true
-    let titleForVC : String = "Categories"
-    let infoVC = InfoUIViewController()
-    let categories : [LocalModelForCategories] = [
+    
+    private var firstStart : Bool = true
+    private let titleForVC : String = "Categories"
+    private let infoVC : UIViewController = InfoUIViewController()
+    private let categories : [LocalModelForCategories] = [
         LocalModelForCategories(category: "Breakfast", imageCategory: "breakfast"),
         LocalModelForCategories(category: "Lunch", imageCategory: "lunch"),
         LocalModelForCategories(category: "Dinner", imageCategory: "dinner"),
@@ -42,7 +43,7 @@ class CategoriesTableViewController: UITableViewController {
         return categories[section].category
     }
     
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "catCell", for: indexPath) as! CategoriesTableViewCell
         let object = categories[indexPath.section]
@@ -82,7 +83,7 @@ class CategoriesTableViewController: UITableViewController {
                 
             default:return
                 
-             }
+            }
         }
         
     }

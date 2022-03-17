@@ -8,7 +8,7 @@
 import UIKit
 import MessageUI
 
-class AppInfoTableViewController: UITableViewController {
+final class AppInfoTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,6 +85,7 @@ extension AppInfoTableViewController : MFMailComposeViewControllerDelegate {
              break
          case .sent:
              break
+         default : break
          }
          controller.dismiss(animated: true, completion: nil)
      }

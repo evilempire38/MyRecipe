@@ -33,8 +33,8 @@ class DayRecipeTableViewController: UITableViewController {
         let object = myRecipe[indexPath.row]
         if let urlforImage = object.image {
             cell.activityIndicator.startAnimating()
-            networkRequests.fetchImage(urlforImage) {[weak self] image in
-                guard let self = self else {return}
+            networkRequests.fetchImage(urlforImage) { image in
+
                 cell.reciepeImage.image = image
                 cell.activityIndicator.stopAnimating()
                 

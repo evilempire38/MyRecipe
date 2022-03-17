@@ -8,12 +8,12 @@
 import UIKit
 
 
-class CurrentCategoriesTableViewController: UITableViewController {
-
-    var recipies = [Recipe]()
-    let request = NetworkRequests()
-    var titleCategoryType : String = ""
-    var paramForRequest : String = ""
+final class CurrentCategoriesTableViewController: UITableViewController {
+    
+    private var recipies = [Recipe]()
+    private let request = NetworkRequests()
+      var titleCategoryType : String = ""
+     var paramForRequest : String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
@@ -23,7 +23,7 @@ class CurrentCategoriesTableViewController: UITableViewController {
             self.recipies = product.shuffled()
             self.tableView.reloadData()
         }
-
+        
     }
     
     // MARK: - Table view data source
@@ -43,7 +43,7 @@ class CurrentCategoriesTableViewController: UITableViewController {
         if let stringForURL = object.image {
             
             cell.activityIndicator.startAnimating()
-            self.request.fetchImage(stringForURL) { [weak self] image in
+            self.request.fetchImage(stringForURL) { image in
                 
                 cell.reciepeImage.image = image
                 cell.activityIndicator.stopAnimating()
@@ -60,7 +60,7 @@ class CurrentCategoriesTableViewController: UITableViewController {
         return 150
     }
     
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toDetail" {
             guard let neededVC = segue.destination as? DetailRecipeViewController else {return}
