@@ -128,6 +128,20 @@
 			path = CategoriesScene;
 			sourceTree = "<group>";
 		};
+		9A545CE327E32A41004F3971 /* Subs */ = {
+			isa = PBXGroup;
+			children = (
+				9A95F09D27A2A6450059BD29 /* AppDelegate.swift */,
+				9A98DD1A27C4E7CD00708BDF /* MyExtansions.swift */,
+				9A80671327C51AAE00BA0445 /* CoreDataStack.swift */,
+				9A95F0A927A2A6480059BD29 /* Assets.xcassets */,
+				9A95F0A627A2A6450059BD29 /* MyRecipe.xcdatamodeld */,
+				9A95F09F27A2A6450059BD29 /* SceneDelegate.swift */,
+				9A95F0C127A2B8D40059BD29 /* NetworkRequests.swift */,
+			);
+			path = Subs;
+			sourceTree = "<group>";
+		};
 		9A6FF3FC27BA4E7900C18D09 /* Segments */ = {
 			isa = PBXGroup;
 			children = (
@@ -169,17 +183,11 @@
 		9A95F09C27A2A6450059BD29 /* MyRecipe */ = {
 			isa = PBXGroup;
 			children = (
+				9A545CE327E32A41004F3971 /* Subs */,
 				9A95F0BA27A2AF750059BD29 /* Models */,
 				9A95F0BB27A2AF7B0059BD29 /* Views */,
 				9A95F0BC27A2AF7F0059BD29 /* Controllers */,
-				9A95F09D27A2A6450059BD29 /* AppDelegate.swift */,
-				9A95F09F27A2A6450059BD29 /* SceneDelegate.swift */,
-				9A95F0C127A2B8D40059BD29 /* NetworkRequests.swift */,
-				9A98DD1A27C4E7CD00708BDF /* MyExtansions.swift */,
-				9A80671327C51AAE00BA0445 /* CoreDataStack.swift */,
-				9A95F0A927A2A6480059BD29 /* Assets.xcassets */,
 				9A95F0AE27A2A6480059BD29 /* Info.plist */,
-				9A95F0A627A2A6450059BD29 /* MyRecipe.xcdatamodeld */,
 			);
 			path = MyRecipe;
 			sourceTree = "<group>";

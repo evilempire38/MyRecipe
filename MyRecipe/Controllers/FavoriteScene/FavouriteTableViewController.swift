@@ -31,7 +31,6 @@ class FavouriteTableViewController: UITableViewController {
         let context = coreDataStack.persistentContainer.viewContext
         do {
             favouriteRecipe = try context.fetch(request)
-            print(favouriteRecipe)
         }
         catch
         {
@@ -104,4 +103,5 @@ class FavouriteTableViewController: UITableViewController {
             
         }
     }
+    
 }
