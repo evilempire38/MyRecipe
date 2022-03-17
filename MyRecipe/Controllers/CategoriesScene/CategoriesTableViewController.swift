@@ -6,10 +6,11 @@
 //
 
 import UIKit
+import Network
 
 class CategoriesTableViewController: UITableViewController {
     
-    private var firstStart : Bool = true
+    private var nwMonitor = NWPathMonitor()
     private let titleForVC : String = "Categories"
     private let infoVC : UIViewController = InfoUIViewController()
     private let categories : [LocalModelForCategories] = [
@@ -23,10 +24,20 @@ class CategoriesTableViewController: UITableViewController {
         LocalModelForCategories(category: "Vegetarian", imageCategory: "vegeterian")]
     
     override func viewDidLoad() {
-        
+
         super.viewDidLoad()
-        self.title = titleForVC
         
+        self.title = titleForVC
+        nwMonitor.start(queue: .global())
+        nwMonitor.pathUpdateHandler = { path in
+            if path.status == .unsatisfied {
+                DispatchQueue.main.async {
+                    self.acUnsatisfiedNetwork()
+                }
+                
+            }
+        }
+
     }
     
     
@@ -86,5 +97,11 @@ class CategoriesTableViewController: UITableViewController {
             }
         }
         
+    }
+    private func acUnsatisfiedNetwork(){
+        let ac = UIAlertController(title: "Sorry", message: "There is no internet connection. Most functions of app are unavailable", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .cancel)
+        ac.addAction(okAction)
+        self.present(ac, animated: true, completion: nil)
     }
 }

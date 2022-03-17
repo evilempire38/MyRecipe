@@ -12,13 +12,13 @@ import CoreData
 final class DetailRecipeViewController: UIViewController {
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
-    
     @IBOutlet weak var viewContainer: UIView!
     @IBOutlet weak var imageView: UIImageView!
     private let favouriteVC = FavouriteTableViewController()
     private let networkService = NetworkRequests()
      var recipe : Recipe?
      var coreDataRecipe : MyFavouriteRecipes?
+    private let coreDataStack = CoreDataStack()
     private let descriptionView = DescriptionViewController()
     private let ingridientsView  = IngredientsTableViewController()
     private let stepsView  = StepsTableViewController()
@@ -131,6 +131,26 @@ final class DetailRecipeViewController: UIViewController {
 
     }
     
+    private func checkingExistingRecipeAndSaveToCoreData () {
+        let request = NSFetchRequest<MyFavouriteRecipes>(entityName: "MyFavouriteRecipes")
+        let context = coreDataStack.persistentContainer.viewContext
+        var myRecipes = [MyFavouriteRecipes]()
+        do {
+            myRecipes = try context.fetch(request)
+            if myRecipes.contains(where: { prop in
+                prop.title == recipe?.title
+            }) {
+                callmyAc(with: "Sorry", message: "Recipe is already in favourite list", style: .alert, titleButton: "OK", styleButton: .cancel)
+            } else {
+                saveToCoreData()
+            }
+        }
+        catch
+        {
+            callmyAc(with: "Oops", message: "Something happened", style: .alert, titleButton: "Ok", styleButton: .cancel)
+        }
+    }
+    
     private func callmyAc(with title : String, message : String?, style : UIAlertController.Style, titleButton : String, styleButton : UIAlertAction.Style){
         let ac = UIAlertController(title: title, message: message, preferredStyle: style)
         let action = UIAlertAction(title: titleButton, style: styleButton, handler: nil)
@@ -144,7 +164,8 @@ final class DetailRecipeViewController: UIViewController {
     }
     
     @IBAction func saveToFavouriteList(_ sender: Any) {
-        saveToCoreData()
+        checkingExistingRecipeAndSaveToCoreData()
+
         
     }
     
