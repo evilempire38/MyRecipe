@@ -95,7 +95,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kyt-CH-l6P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3915.9420289855075" y="-3662.2767857142853"/>
+            <point key="canvasLocation" x="3933" y="-3542"/>
         </scene>
         <!--Detail Recipe View Controller-->
         <scene sceneID="kmx-52-WgH">
@@ -635,7 +635,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NSG-Ry-ew2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3008.6956521739135" y="-543.08035714285711"/>
+            <point key="canvasLocation" x="2935" y="-543"/>
         </scene>
         <!--InfoUI View Controller-->
         <scene sceneID="nyj-PS-PEd">
@@ -685,7 +685,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="fSq-Ui-gQc"/>
+        <segue reference="7qU-T8-cFH"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="book" catalog="system" width="128" height="99"/>
