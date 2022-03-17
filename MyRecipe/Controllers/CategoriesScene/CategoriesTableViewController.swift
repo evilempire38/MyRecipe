@@ -10,7 +10,7 @@ import Network
 
 class CategoriesTableViewController: UITableViewController {
     
-    private var nwMonitor = NWPathMonitor()
+    private var nwMonitor : NWPathMonitor = NWPathMonitor()
     private let titleForVC : String = "Categories"
     private let infoVC : UIViewController = InfoUIViewController()
     private let categories : [LocalModelForCategories] = [
