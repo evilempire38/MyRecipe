@@ -7,11 +7,11 @@
 
 import UIKit
 
-class IngredientsTableViewController: UITableViewController {
+final class IngredientsTableViewController: UITableViewController {
     
     
-    var recipe : Recipe?
-    var coreDataRecipe : MyFavouriteRecipes?
+     var recipe : Recipe?
+     var coreDataRecipe : MyFavouriteRecipes?
     
 
     override func viewDidLoad() {

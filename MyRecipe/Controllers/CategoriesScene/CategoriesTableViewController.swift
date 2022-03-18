@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import Network
 
 class CategoriesTableViewController: UITableViewController {
-    var firstStart : Bool = true
-    let titleForVC : String = "Categories"
-    let infoVC = InfoUIViewController()
-    let categories : [LocalModelForCategories] = [
+    
+    private var nwMonitor : NWPathMonitor = NWPathMonitor()
+    private let titleForVC : String = "Categories"
+    private let infoVC : UIViewController = InfoUIViewController()
+    private let categories : [LocalModelForCategories] = [
         LocalModelForCategories(category: "Breakfast", imageCategory: "breakfast"),
         LocalModelForCategories(category: "Lunch", imageCategory: "lunch"),
         LocalModelForCategories(category: "Dinner", imageCategory: "dinner"),
@@ -22,10 +24,20 @@ class CategoriesTableViewController: UITableViewController {
         LocalModelForCategories(category: "Vegetarian", imageCategory: "vegeterian")]
     
     override func viewDidLoad() {
-        
+
         super.viewDidLoad()
-        self.title = titleForVC
         
+        self.title = titleForVC
+        nwMonitor.start(queue: .global())
+        nwMonitor.pathUpdateHandler = { path in
+            if path.status == .unsatisfied {
+                DispatchQueue.main.async {
+                    self.acUnsatisfiedNetwork()
+                }
+                
+            }
+        }
+
     }
     
     
@@ -42,7 +54,7 @@ class CategoriesTableViewController: UITableViewController {
         return categories[section].category
     }
     
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "catCell", for: indexPath) as! CategoriesTableViewCell
         let object = categories[indexPath.section]
@@ -82,8 +94,14 @@ class CategoriesTableViewController: UITableViewController {
                 
             default:return
                 
-             }
+            }
         }
         
+    }
+    private func acUnsatisfiedNetwork(){
+        let ac = UIAlertController(title: "Sorry", message: "There is no internet connection. Most functions of app are unavailable", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .cancel)
+        ac.addAction(okAction)
+        self.present(ac, animated: true, completion: nil)
     }
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DescriptionViewController: UIViewController {
+final class DescriptionViewController: UIViewController {
     
     var descriptionOfRecipe : String = ""
 

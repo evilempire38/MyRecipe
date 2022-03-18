@@ -8,7 +8,7 @@
 import UIKit
 import CoreData
 
-class SearchTableViewController: UITableViewController  {
+final class SearchTableViewController: UITableViewController  {
     
     private let searchController = UISearchController(searchResultsController: nil)
     private var searchedRecipes : [Recipe] = []
@@ -38,8 +38,8 @@ class SearchTableViewController: UITableViewController  {
         let object = searchedRecipes[indexPath.row]
         if let urlforImage = object.image {
             cell.activityIndicator.startAnimating()
-            self.request.fetchImage(urlforImage) { [weak self] image in
-                guard let image = image, let self = self else {return}
+            self.request.fetchImage(urlforImage) {  image in
+                guard let image = image else {return}
                 cell.reciepeImage.image = image
                 cell.activityIndicator.stopAnimating()
             }
